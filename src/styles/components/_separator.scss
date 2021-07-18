@@ -1,6 +1,10 @@
 .separator {
-  margin-bottom: 1rem;
+  margin-bottom: 27.5px;
   display: flex;
+
+  @include medium() {
+    margin-bottom: 20px;
+  }
 
   img {
     width: auto;

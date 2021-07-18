@@ -2,8 +2,20 @@
 @import 'components/_separator.scss';
 
 body {
-  font-family: Montserrat, sans-serif;
+  font-family: Helvetica, sans-serif;
   min-height: 100vh;
+  color: #333;
+  line-height: 1.3;
+  letter-spacing: .2px;
+  border-top: 20px solid lighten($secondary-color, 10%);
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+h2, h3 {
+  margin-bottom: 19px;
 }
 
 img {
@@ -15,7 +27,7 @@ img {
 }
 
 .page {
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +38,7 @@ img {
   }
 
   @include big() {
-    padding-top: 5rem;
+    padding-top: 3rem;
   }
 }
 
@@ -38,8 +50,45 @@ img {
   }
 }
 
+.header-image {
+  max-width: 500px;
+}
+
+.image-wrapper {
+  border-radius: 3px;
+}
+
 .section {
   &:not(:last-of-type) {
+    margin-bottom: 25px;
+  }
+}
+
+.row.default {
+
+  @include medium() {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .image-wrapper:not(:last-of-type) {
     margin-bottom: 30px;
+  }
+
+  .image-wrapper {
+    @include medium() {
+      width: calc(50% - 10px);
+    }
+
+    @include big() {
+      width: calc(33% - 10px)
+    }
+  }
+}
+
+.row.journal {
+  @include medium() {
+    max-width: 60%;
   }
 }
