@@ -1,4 +1,5 @@
 import '../styles/style.scss'
+import './includes/_lazyloading'
 import delay from './includes/delay.ts'
 
 (async () => {

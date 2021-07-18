@@ -52,6 +52,7 @@
     "workbox-webpack-plugin": "^5.1.4"
   },
   "dependencies": {
+    "lozad": "^1.16.0",
     "workbox-cacheable-response": "^6.0.2",
     "workbox-expiration": "^6.0.2",
     "workbox-precaching": "^6.0.2",
