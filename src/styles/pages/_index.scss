@@ -1,11 +1,22 @@
-.main {
-  padding-top: 2.5rem;
+.row.default {
 
   @include medium() {
-    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
-  @include big() {
-    padding-top: 5rem;
+  .image-wrapper:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  .image-wrapper {
+    @include medium() {
+      width: calc(50% - 10px);
+    }
+
+    @include big() {
+      width: calc(33% - 10px)
+    }
   }
 }

@@ -7,7 +7,8 @@ module.exports = merge(common, {
   devtool: 'eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
-    port: 9000
+    watchContentBase: true,
+    port: 9002,
   },
   module: {
     rules: [

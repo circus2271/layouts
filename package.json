@@ -1,18 +1,16 @@
 {
-  "name": "webpack-sw-starter",
+  "name": "layouts",
   "version": "1.0.0",
   "description": "webpack starter kit",
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.development.js",
+    "start": "webpack serve --config webpack/webpack.development.js --open",
     "serve": "npm run build && http-server dist",
     "build": "webpack --config webpack/webpack.production.js"
   },
   "keywords": [
-    "webpack-starter",
-    "webpack-sw-starter",
-    "webpack serviceWorker starter"
+    "layouts"
   ],
-  "author": "rodionov80 <rodionov134@gmail.com>",
+  "author": "octoCamo <rodionov134@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",

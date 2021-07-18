@@ -1,34 +1,57 @@
 {{#> layouts/base }}
   {{#*inline "content"}}
 
-    <main class="main">
-      <header class="header">
-        <h1 class="header-title">
-          Webpack SW Starter
-        </h1>
-      </header>
-      <h2 class="title">Supported features:</h2>
-      <ul class="features">
-        <li>
-          <a href="https://www.typescriptlang.org/">Typescript</a>
-        </li>
-        <li>
-          <a href="https://sass-lang.com/">Sass</a>
-        </li>
-        <li>
-          <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>
-        </li>
-        <li>
-          <a href="https://handlebarsjs.com/">Handlebars</a>
-        </li>
-        <li>
-          <a href="https://developers.google.com/web/tools/workbox/">Workbox</a>
-        </li>
-        <li>
-          <a href="https://webpack.js.org/configuration/dev-server/#root">DevServer</a>
-        </li>
-      </ul>
+    <header class="header">
+      <h1 class="header-title">
+        Layouts
+      </h1>
+    </header>
+
+    <main class="main layouts">
+
+      {{> includes/separator }}
+
+      <section class="section">
+        <div class="row header">
+          <h2>
+            Дневник 18.07
+          </h2>
+        </div>
+        <div class="row default">
+          Непонятное желание двигаться куда-то. Есть деятельность вне работы. Я хочу приносить пользу, делать мир лучше,
+          открываться миру.
+          Хочу ли я быть профессионалом разработчиком ффронтенда. Или я не хочу им быть. Может быть, я уже он. Опыт
+          накапливается, мои мироощущения меняются. Слушаю аудиоверсию Гиты. Начинаю понимать что атман -- суть брахман.
+          Осваиваю азы гитары. Во вторник едем с Катей и Пашей на вводную лекцию по ТМ. Деньги на это есть. Возможно, работа
+          помогает аккумулировать деньги на этом этапе моей жизни. По-любому, есть и другие способы получения денег.
+        </div>
+      </section>
+
+      {{> includes/separator }}
+
+      <section class="section">
+        <div class="row header">
+          <h2>
+            #1
+          </h2>
+        </div>
+        <div class="row default">
+          <div class="image-wrapper">
+            <img width="600" height="400" src="https://source.unsplash.com/random/600x400"
+                 alt="random image">
+          </div>
+          <div class="image-wrapper">
+            <img width="600" height="400" src="https://source.unsplash.com/random/600x401"
+                 alt="random image">
+          </div>
+          <div class="image-wrapper">
+            <img width="600" height="400" src="https://source.unsplash.com/random/600x402"
+                 alt="random image">
+          </div>
+        </div>
+      </section>
     </main>
+
 
   {{/inline}}
 {{/ layouts/base }}

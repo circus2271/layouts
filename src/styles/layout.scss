@@ -1,15 +1,33 @@
 @import 'components/footer';
+@import 'components/_separator.scss';
 
 body {
   font-family: Montserrat, sans-serif;
   min-height: 100vh;
 }
 
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-color: #eee;
+  display: block;
+}
+
 .page {
+  padding-top: 2.5rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @include medium() {
+    padding-top: 5rem;
+  }
+
+  @include big() {
+    padding-top: 5rem;
+  }
 }
 
 .wrapper {
@@ -17,5 +35,11 @@ body {
 
   @include medium() {
     padding: 0 2.5rem;
+  }
+}
+
+.section {
+  &:not(:last-of-type) {
+    margin-bottom: 30px;
   }
 }
