@@ -1,6 +1,6 @@
 {
-  "name": "13-freaks",
-  "version": "1.0.0",
+  "name": "13freaks",
+  "version": "1.0.1",
   "description": "13 Freaks !3 Freaks 13 Freaks",
   "scripts": {
     "start": "webpack serve --config webpack/webpack.development.js --open",
@@ -8,7 +8,8 @@
     "build": "webpack --config webpack/webpack.production.js"
   },
   "keywords": [
-    "layouts"
+    "layouts",
+    "13freaks"
   ],
   "author": "octoCamo <rodionov134@gmail.com>",
   "license": "ISC",
@@ -52,6 +53,7 @@
     "workbox-webpack-plugin": "^5.1.4"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001245",
     "lozad": "^1.16.0",
     "workbox-cacheable-response": "^6.0.2",
     "workbox-expiration": "^6.0.2",
