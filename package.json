@@ -1,7 +1,7 @@
 {
-  "name": "layouts",
+  "name": "13 Freaks",
   "version": "1.0.0",
-  "description": "webpack starter kit",
+  "description": "13 Freaks !3 Freaks 13 Freaks",
   "scripts": {
     "start": "webpack serve --config webpack/webpack.development.js --open",
     "serve": "npm run build && http-server dist",
