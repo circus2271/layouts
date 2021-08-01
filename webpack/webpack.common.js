@@ -102,7 +102,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: '[name].css'
     }),
     new CopyWebpackPlugin({
           patterns: [
@@ -113,6 +113,10 @@ module.exports = {
             {
               from: path.resolve(__dirname, '../src/media/icons/maskable_icon.png'),
               to: 'pwa/icons/maskable_icon.png'
+            },
+            {
+              from: path.resolve(__dirname, '../src/media/audio'),
+              to: 'audio/'
             }
           ]
         }

@@ -55,6 +55,7 @@
   "dependencies": {
     "caniuse-lite": "^1.0.30001245",
     "lozad": "^1.16.0",
+    "plyr": "^3.6.8",
     "workbox-cacheable-response": "^6.0.2",
     "workbox-expiration": "^6.0.2",
     "workbox-precaching": "^6.0.2",
