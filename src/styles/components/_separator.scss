@@ -1,9 +1,9 @@
-.separator {
-  margin-bottom: 27.5px;
+section.section.separator {
   display: flex;
+  margin-bottom: 20px;
 
-  @include medium() {
-    margin-bottom: 20px;
+  &:not(:first-of-type) {
+    margin-bottom: 25px;
   }
 
   img {

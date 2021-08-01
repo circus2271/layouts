@@ -65,7 +65,11 @@ img {
 
 .section {
   &:not(:last-of-type) {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+
+    @include medium() {
+      margin-bottom: 25px;
+    }
   }
 }
 
@@ -183,8 +187,14 @@ img {
 }
 
 section.inst-photo {
+  .image-wrapper.wrapper {
+    @include small() {
+      padding: 0;
+    }
+  }
+
   h2 {
-    margin-top: 11px;
+    margin: 10px 0 15px;
   }
 }
 
