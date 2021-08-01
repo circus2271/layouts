@@ -64,13 +64,7 @@ img {
 }
 
 .section {
-  &:not(:last-of-type) {
-    margin-bottom: 20px;
-
-    @include medium() {
-      margin-bottom: 25px;
-    }
-  }
+  margin-bottom: 25px;
 }
 
 .row.default {

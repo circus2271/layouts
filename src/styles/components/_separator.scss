@@ -3,7 +3,11 @@ section.section.separator {
   margin-bottom: 20px;
 
   &:not(:first-of-type) {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 10px;
   }
 
   img {
