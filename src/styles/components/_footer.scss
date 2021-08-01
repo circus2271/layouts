@@ -1,6 +1,10 @@
 .footer {
-  flex-grow: 1;
   display: flex;
+  padding: 15px 0 20px;
+
+  .separator {
+    margin-bottom: 0;
+  }
 
   img {
     width: auto;
