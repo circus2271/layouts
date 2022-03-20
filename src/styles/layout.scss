@@ -31,6 +31,10 @@ img {
   display: block;
 }
 
+strong {
+  font-weight: 500;
+}
+
 .page {
   padding-top: 1rem;
   min-height: 100vh;
@@ -102,7 +106,7 @@ img {
 
 .section.fire-and-coyotes {
   $ripped-bg-height-small: 75px;
-  $ripped-bg-height-medium: 175px;
+  $ripped-bg-height-medium: 174px;
 
   background-color: $primary-color;
   color: #eee;
@@ -135,7 +139,7 @@ img {
     background-image: url(media/images/ripped-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    bottom: 0;
+    bottom: -1px;
     transform: rotate(180deg);
     background-color: white;
 
