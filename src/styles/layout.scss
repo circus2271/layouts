@@ -16,11 +16,17 @@ h1, h2, h3 {
 }
 
 h1 {
-  margin-bottom: 10px;
+  line-height: 100%;
+  margin-bottom: 1.25rem;
+
+  @include medium() {
+    margin-bottom: 2rem;
+  }
 }
 
 h2, h3 {
-  margin-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 img {
@@ -68,7 +74,11 @@ strong {
 }
 
 .section {
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
+
+  .main &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .row.default {
@@ -194,7 +204,7 @@ section.inst-photo {
   }
 
   h2 {
-    margin: 10px 0 15px;
+    margin: .75rem 0 2rem;
   }
 }
 
