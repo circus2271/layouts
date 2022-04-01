@@ -63,7 +63,7 @@ module.exports = {
               postcssOptions: {
                 plugins: [
                   [
-                    "autoprefixer",
+                    'autoprefixer',
                   ],
                 ],
               },
@@ -105,21 +105,21 @@ module.exports = {
       filename: '[name].css'
     }),
     new CopyWebpackPlugin({
-          patterns: [
-            {
-              from: path.resolve(__dirname, '../manifest.json'),
-              to: 'manifest.json'
-            },
-            {
-              from: path.resolve(__dirname, '../src/media/icons/maskable_icon.png'),
-              to: 'pwa/icons/maskable_icon.png'
-            },
-            {
-              from: path.resolve(__dirname, '../src/media/audio'),
-              to: 'audio/'
-            }
-          ]
-        }
+        patterns: [
+          {
+            from: path.resolve(__dirname, '../manifest.json'),
+            to: 'manifest.json'
+          },
+          {
+            from: path.resolve(__dirname, '../src/media/icons/maskable_icon.png'),
+            to: 'pwa/icons/maskable_icon.png'
+          },
+          {
+            from: path.resolve(__dirname, '../src/media/audio'),
+            to: 'audio/'
+          }
+        ]
+      }
     ),
     ...templates.map(template => new HtmlWebpackPlugin(template)),
   ]
