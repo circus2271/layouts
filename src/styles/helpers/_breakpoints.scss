@@ -1,5 +1,12 @@
+$extra-small-end: 479px;
 $medium-start: 768px;
 $big-start: 1200px;
+
+@mixin extra-small() {
+  @media screen and (max-width: $extra-small-end) {
+    @content;
+  }
+}
 
 @mixin small() {
   @media screen and (max-width: $medium-start - 1px) {

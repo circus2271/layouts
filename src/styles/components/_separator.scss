@@ -2,6 +2,10 @@ section.section.separator {
   display: flex;
   margin-bottom: 2rem;
 
+  @include extra-small() {
+    justify-content: center;
+  }
+
   &:not(:first-of-type) {
     margin-bottom: 30px;
   }
@@ -13,5 +17,11 @@ section.section.separator {
   img, svg {
     width: auto;
     height: auto;
+
+    @include extra-small() {
+      &:nth-of-type(n + 4) {
+        display: none;
+      }
+    }
   }
 }
