@@ -19,7 +19,9 @@ section.section.separator {
     height: auto;
 
     &:nth-of-type(2n) {
-      transform: rotate(180deg);
+      @medium() {
+        transform: rotate(180deg);
+      }
     }
     
     @include extra-small() {
