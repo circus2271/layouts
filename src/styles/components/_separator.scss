@@ -18,6 +18,10 @@ section.section.separator {
     width: auto;
     height: auto;
 
+    &:nth-of-type(2n) {
+      transform: rotate(180deg);
+    }
+    
     @include extra-small() {
       &:nth-of-type(n + 4) {
         display: none;
