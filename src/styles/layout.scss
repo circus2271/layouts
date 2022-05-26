@@ -74,7 +74,7 @@ strong {
   border-radius: 3px;
 }
 
-.section {
+.article {
   margin-bottom: 1rem;
 
   .main &:last-of-type {
@@ -83,7 +83,6 @@ strong {
 }
 
 .row.default {
-
   @include medium() {
     display: flex;
     justify-content: space-between;
@@ -115,7 +114,7 @@ strong {
   }
 }
 
-.section.fire-and-coyotes {
+.article.fire-and-coyotes {
   $ripped-bg-height-small: 75px;
   $ripped-bg-height-medium: 174px;
 
@@ -190,14 +189,19 @@ strong {
 
 .audio-card {
   border-radius: 3.5px;
-  overflow: hidden;
 
   &:not(:last-of-type) {
     margin-bottom: 30px;
   }
+
+  .image-wrapper {
+    border-top-left-radius: 3.5px;
+    border-top-right-radius: 3.5px;
+    overflow: hidden;
+  }
 }
 
-section.inst-photo {
+article.inst-photo {
   .image-wrapper.wrapper {
     @include small() {
       padding: 0;

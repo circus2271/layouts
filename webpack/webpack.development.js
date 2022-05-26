@@ -9,7 +9,7 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, '../dist'),
     watchContentBase: true,
     host: '0.0.0.0',
-    port: 9002,
+    port: 9000,
   },
   module: {
     rules: [
