@@ -1,0 +1,119 @@
+.floating-action-button {
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  position: fixed;
+  bottom: .5rem;
+  right: .75rem;
+  transition: transform .4s;
+  z-index: 3;
+  cursor: pointer;
+  padding: .5rem;
+  color: red;
+  -webkit-tap-highlight-color: transparent; // remove blue selection when tapping on mobile chrome
+
+  &.hidden {
+    transform: translateY(5rem); // 5 = 0.5 bottom + 4.5 height
+  }
+
+  &.active {
+    transform: rotate(45deg);
+  }
+
+  div {
+    background: var(--accent-color-4);
+    border-radius: 50%;
+    max-height: 100%;
+    height: 100%;
+    max-width: 100%;
+    background: url('media/icons/settings-icon.svg') center / 56% 56% no-repeat, var(--accent-color-4);
+    box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f; // shadow from https://material.angular.io/components/button/overview
+  }
+}
+
+.mobile-fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  overflow: auto;
+  transition-property: visibility, opacity;
+  transition-duration: .25s;
+  visibility: hidden;
+  opacity: 0;
+  padding: 3.5rem 0 0;
+  color: #fff;
+
+  .animation-box {
+    background: #ff4500; //orangered
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: right bottom;
+    transition: transform .25s, visibility .125s, opacity .25s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+
+    .animation-box {
+      transform: scale(1);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .fullscreen-menu__wrapper {
+    padding: 0 1.75rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    background-color: #333;
+    padding: 1.75rem 1.75rem 3.5rem;
+    margin-bottom: 0;
+  }
+
+  li {
+    position: relative;
+    margin-left: 19.1px; // hardcoded double length of '>' symbol
+
+    &:before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(-200%, 0%);
+    }
+  }
+
+  li:not(:last-of-type) a {
+    padding-bottom: 1.25rem;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+}
+

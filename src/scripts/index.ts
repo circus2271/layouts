@@ -1,4 +1,5 @@
 import '../styles/style.scss'
 import './includes/_lazyloading'
 import './includes/_plyr-player'
-import './includes/_youtube-players'
+import './includes/_youtube-players-initialization'
+import './includes/_floating-action-button'

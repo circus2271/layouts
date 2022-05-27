@@ -8,8 +8,8 @@ module.exports = merge(common, {
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     watchContentBase: true,
-    host: '0.0.0.0',
-    port: 9000,
+    host: '0.0.0.0', // uncomment if you want to get access from local network
+    port: 8999,
   },
   module: {
     rules: [

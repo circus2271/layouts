@@ -34,6 +34,8 @@
   {{!-- hidden navbar may be useful for position absolute/fixed navbars --}}
   {{!-- {{> includes/navbar hidden="true"}} --}}
 
+  {{> includes/floating-action-button }}
+
   <div class="content">
     {{#> content }}{{/ content }}
   </div>
@@ -41,20 +43,20 @@
   {{> includes/footer }}
 
 </div>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/serviceWorker.js')
-          .then(registration => {
-            // Регистрация прошла успешно
-            console.log('Sw registered with scope: ', registration.scope)
-          })
-          .catch(err => {
-            // Регистрация не удалась
-            console.log('SW registration failed: ', err)
-          })
-    })
-  }
-</script>
+<!--<script>-->
+<!--  if ('serviceWorker' in navigator) {-->
+<!--    window.addEventListener('load', function () {-->
+<!--      navigator.serviceWorker.register('/serviceWorker.js')-->
+<!--          .then(registration => {-->
+<!--            // Регистрация прошла успешно-->
+<!--            console.log('Sw registered with scope: ', registration.scope)-->
+<!--          })-->
+<!--          .catch(err => {-->
+<!--            // Регистрация не удалась-->
+<!--            console.log('SW registration failed: ', err)-->
+<!--          })-->
+<!--    })-->
+<!--  }-->
+<!--</script>-->
 </body>
 </html>
