@@ -84,7 +84,19 @@ strong {
 }
 
 .article {
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
+
+  @include medium() {
+    margin-bottom: 2rem;
+  }
+
+  &.article--video {
+    margin-bottom: 1.5rem;
+
+    @include medium() {
+      margin-bottom: 1.75rem;
+    }
+  }
 
   .main &:last-of-type {
     margin-bottom: 0;
@@ -220,6 +232,10 @@ article.inst-photo {
   h2 {
     margin: .75rem 0 2rem;
   }
+
+  //&.inst-photo--vertical h2 {
+  //  margin-bottom: 1rem;
+  //}
 }
 
 .instagram-link {
