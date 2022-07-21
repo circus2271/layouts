@@ -11,13 +11,17 @@
       </div>
     </header>
 
-    {{> includes/separator }}
-
     <article class="article inst-photo inst-photo--vertical">
       <div class="row journal">
         <div class="image-wrapper wrapper">
-          <img class="lozad" width="1080" height="1350" data-src="media/images/panelki-instagram-photo.jpg"
-               alt="@russian__streets instagram photo">
+          <div>
+            <img class="lozad-sqip-placeholder" width="1080" height="1350"
+                 sqip-webpack-plugin-src="media/images/panelki-instagram-photo.jpg"
+                 alt="low quality image placeholder">
+            <img class="lozad lozad-sqip-extension" width="1080" height="1350"
+                 data-src="media/images/panelki-instagram-photo.jpg"
+                 alt="@russian__streets instagram photo">
+          </div>
         </div>
         <div class="row header">
           <div class="wrapper">
@@ -30,6 +34,7 @@
         </div>
       </div>
     </article>
+
 
     <article class="article article--video">
       <div class="row journal">
@@ -209,8 +214,14 @@
     <article class="article inst-photo">
       <div class="row journal">
         <div class="image-wrapper wrapper">
-          <img class="lozad" width="600" height="400" data-src="media/images/arv.ean-photo1.jpeg"
-               alt="@arv.ean instagram photo">
+          <div>
+            <img class="lozad-sqip-placeholder" width="600" height="400"
+                 sqip-webpack-plugin-src="media/images/arv.ean-photo1.jpeg"
+                 alt="low quality image placeholder">
+            <img class="lozad lozad-sqip-extension" width="600" height="400"
+                 data-src="media/images/arv.ean-photo1.jpeg"
+                 alt="@arv.ean instagram photo">
+          </div>
         </div>
         <div class="row header">
           <div class="wrapper">

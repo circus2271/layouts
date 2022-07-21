@@ -1,4 +1,16 @@
 import lozad from 'lozad'
 
-const observer = lozad('.lozad', {loaded: ()=>console.log('зуй')}); // lazy loads elements with default selector as '.lozad'
-observer.observe();
+const observer = lozad('.lozad',
+  {
+    loaded: function (el) {
+      const withPlaceholder = el.classList.contains('lozad-sqip-extension')
+
+      if (withPlaceholder) {
+        const placeholder = el.parentNode.querySelector('.lozad-sqip-placeholder')
+        placeholder.classList.add('fade-out')
+      }
+    }
+  }
+)
+
+observer.observe()

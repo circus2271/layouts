@@ -1,17 +1,17 @@
 {
-  "name": "13freaks",
+  "name": "midnight-runner",
   "version": "1.0.1",
-  "description": "13 Freaks !3 Freaks 13 Freaks",
+  "description": "midnight-runner",
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.development.js --open",
+    "start": "webpack serve --config webpack/webpack.development.js",
     "serve": "npm run build && http-server dist",
     "build": "webpack --config webpack/webpack.production.js"
   },
   "keywords": [
     "layouts",
-    "13freaks"
+    "midnight-runner"
   ],
-  "author": "octoCamo <rodionov134@gmail.com>",
+  "author": "mundisyum <rodionov134@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -23,6 +23,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.0",
     "css-loader": "^5.0.1",
+    "data-uri": "^0.0.3",
     "extract-loader": "^5.1.0",
     "file-loader": "^6.2.0",
     "handlebars": "^4.7.6",
@@ -42,7 +43,10 @@
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
-    "standard": "^16.0.1",
+    "sqip": "^1.0.0-alpha.38",
+    "sqip-plugin-primitive": "^1.0.0-alpha.40",
+    "sqip-plugin-data-uri": "^1.0.0-alpha.39",
+    "sqip-plugin-svgo": "^1.0.0-alpha.40",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.14",
     "typescript": "^4.1.3",
