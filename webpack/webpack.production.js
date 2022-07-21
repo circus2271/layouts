@@ -15,6 +15,8 @@ module.exports = merge(common, {
             loader: 'file-loader', // Or `url-loader` or your other loader
             options: {
               esModule: false,
+              outputPath: 'images',
+              name: '[name].[ext]',
             }
           },
           {
@@ -41,7 +43,7 @@ module.exports = merge(common, {
       swSrc: path.resolve(__dirname, '../serviceWorker.js'),
       swDest: 'serviceWorker.js',
       exclude: [
-        // don't precache images and CNAME
+        // don't precache images
         /\.(png|svg|jpe?g|webp|gif)$/
       ]
     })
