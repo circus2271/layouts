@@ -101,6 +101,7 @@ strong {
   .main &:last-of-type {
     margin-bottom: 0;
   }
+
 }
 
 .row.default {
@@ -181,6 +182,7 @@ strong {
 
   h2 {
     margin-top: 15px;
+    //margin-top: 1rem;
 
     @include medium() {
       margin-bottom: 35px;
@@ -233,16 +235,27 @@ article.inst-photo {
     }
 
     .lozad-sqip-placeholder {
+      background-color: unset;
+    }
+
+    .lozad-main-image {
+      transition-property: opacity, visibility;
+      transition-duration: .5s;
+      transition-delay: .1s;
+      transition-timing-function: ease-in;
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       height: 100%;
-      transition-duration: .4s;
-      transition-property: opacity, visibility;
-      transition-timing-function: ease-out;
-      opacity: 1;
+      top: 0;
 
-      &.fade-out {
-        opacity: 0;
-        visibility: hidden;
+      &.loaded {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      img {
+        background-color: unset;
       }
     }
   }
@@ -250,10 +263,6 @@ article.inst-photo {
   h2 {
     margin: .75rem 0 2rem;
   }
-
-  //&.inst-photo--vertical h2 {
-  //  margin-bottom: 1rem;
-  //}
 }
 
 .instagram-link {

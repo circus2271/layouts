@@ -3,11 +3,10 @@ import lozad from 'lozad'
 const observer = lozad('.lozad',
   {
     loaded: function (el) {
-      const withPlaceholder = el.classList.contains('lozad-sqip-extension')
+      const withPlaceholder = el.classList.contains('js-lozad-with-sqip-placeholder')
 
       if (withPlaceholder) {
-        const placeholder = el.parentNode.querySelector('.lozad-sqip-placeholder')
-        if (placeholder) placeholder.classList.add('fade-out')
+        el.classList.add('loaded')
       }
     }
   }

@@ -37,7 +37,8 @@ module.exports = {
         test: /\.hbs$/,
         loader: 'handlebars-loader',
         options: {
-          inlineRequires: /\.(png|svg|jpe?g|webp|gif|ico)$/i,
+          // url dosn't start with https
+          inlineRequires: /^(?!https).*\.(png|svg|jpe?g|webp|gif|ico)$/i,
           rootRelative: path.join(__dirname, '../src/hbs/'),
           precompileOptions: {
             knownHelpersOnly: false
