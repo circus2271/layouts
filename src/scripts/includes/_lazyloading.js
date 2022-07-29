@@ -7,7 +7,7 @@ const observer = lozad('.lozad',
 
       if (withPlaceholder) {
         const placeholder = el.parentNode.querySelector('.lozad-sqip-placeholder')
-        placeholder.classList.add('fade-out')
+        if (placeholder) placeholder.classList.add('fade-out')
       }
     }
   }

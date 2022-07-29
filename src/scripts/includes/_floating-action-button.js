@@ -38,6 +38,8 @@ fromEvent(document, 'scroll', { passive: true })
 const floatingButton = document.querySelector('.js-floating-action-button'),
   mobileFullScreenMenu = document.querySelector('.js-mobile-fullscreen-menu')
 
+mobileFullScreenMenu.classList.add('initialize-transitions');
+
 floatingButton.onclick = () => {
   floatingButton.classList.toggle('active')
   mobileFullScreenMenu.classList.toggle('visible')
@@ -46,6 +48,7 @@ floatingButton.onclick = () => {
 
 const videoPlayers = document.querySelectorAll('.js-player')
 
+// TODO: rewrite with .map + join('')
 const html = [...videoPlayers].reduce((previousValue, currentValue) => {
   const { videoTitle, videoId } = currentValue.dataset
   const markup = `
