@@ -59,12 +59,14 @@
       <div class="row journal">
         <div class="image-wrapper wrapper">
           <div>
-            <img class="lozad-sqip-placeholder" width="1080" height="1350"
-                 sqip-webpack-plugin-src="media/images/panelki-instagram-photo.jpg"
-                 alt="low quality image placeholder">
-            <img class="lozad lozad-main-image js-lozad-with-sqip-placeholder" width="1080" height="1350"
-                 data-src="media/images/panelki-instagram-photo.jpg"
-                 alt="@russian__streets instagram photo">
+
+            {{> includes/image-lazyloading
+                src="media/images/panelki-instagram-photo.jpg"
+                width="1080"
+                height="1350"
+                alt="@russian__streets instagram photo"
+            }}
+
           </div>
         </div>
         <div class="row header">
@@ -258,12 +260,14 @@
       <div class="row journal">
         <div class="image-wrapper wrapper">
           <div>
-            <img class="lozad-sqip-placeholder" width="600" height="400"
-                 sqip-webpack-plugin-src="media/images/arv.ean-photo1.jpeg"
-                 alt="low quality image placeholder">
-            <img class="lozad lozad-main-image js-lozad-with-sqip-placeholder" width="600" height="400"
-                 data-src="https://midnight-runner.vercel.app/images/arv.ean-photo1.jpeg"
-                 alt="@arv.ean instagram photo">
+
+            {{> includes/image-lazyloading
+                src="media/images/arv.ean-photo1.jpeg"
+                width="600"
+                height="400"
+                alt="@arv.ean instagram photo"
+            }}
+
           </div>
         </div>
         <div class="row header">
@@ -290,8 +294,16 @@
         <div class="row journal">
           <div class="audio-card">
             <div class="image-wrapper">
-              <img class="lozad" width="499" height="212" data-src="media/images/fire-in-the-wood.jpeg"
-                   alt="fire in the wood photo">
+              <div>
+
+                {{> includes/image-lazyloading
+                    src="media/images/fire-in-the-wood.jpeg"
+                    width="499"
+                    height="212"
+                    alt="fire in the wood photo"
+                }}
+
+              </div>
             </div>
             <div class="plyr-player-wrapper">
               <audio class="js-plyr-player">
@@ -301,8 +313,16 @@
           </div>
           <div class="audio-card">
             <div class="image-wrapper">
-              <img class="lozad" width="544" height="306" data-src="media/images/coyoute.jpeg"
-                   alt="coyoute">
+              <div>
+
+                {{> includes/image-lazyloading
+                    src="media/images/coyoute.jpeg"
+                    width="544"
+                    height="306"
+                    alt="coyoutes"
+                }}
+
+              </div>
             </div>
             <div class="plyr-player-wrapper">
               <audio class="js-plyr-player">

@@ -229,39 +229,41 @@ article.inst-photo {
     @include small() {
       padding: 0;
     }
-
-    > div {
-      position: relative;
-    }
-
-    .lozad-sqip-placeholder {
-      background-color: unset;
-    }
-
-    .lozad-main-image {
-      transition-property: opacity, visibility;
-      transition-duration: 1s;
-      transition-delay: .1s;
-      transition-timing-function: ease-in;
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      height: 100%;
-      top: 0;
-
-      &.loaded {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      img {
-        background-color: unset;
-      }
-    }
   }
 
   h2 {
     margin: .75rem 0 2rem;
+  }
+}
+
+.image-wrapper {
+  > div {
+    position: relative;
+  }
+
+  .lozad-sqip-placeholder {
+    background-color: unset;
+  }
+
+  .lozad-main-image {
+    transition-property: opacity, visibility;
+    transition-duration: 1s;
+    transition-delay: .1s;
+    transition-timing-function: ease-in;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    height: 100%;
+    top: 0;
+
+    &.loaded {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    img {
+      background-color: unset;
+    }
   }
 }
 
