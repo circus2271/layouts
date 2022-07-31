@@ -9,13 +9,21 @@ const SqipWebpackPlugin = require('./sqip-webpack-plugin')
 module.exports = {
   target: 'web',
   entry: {
-    bundle: [
-      path.resolve(__dirname, '../src/scripts/index.ts')
-    ],
+    // Service worker entry point:
+    serviceWorker: path.resolve(__dirname, '../src/serviceWorker.js'),
+    // Application entry point:
+    bundle: path.resolve(__dirname, '../src/scripts/index.ts'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[contenthash].bundle.js',
+    filename: (pathData) => {
+      if (pathData.chunk.name === 'serviceWorker') {
+        // return 'serviceWorker.js'
+        return '[name].js'
+      }
+
+      return '[name].[contenthash:8].bundle.js';
+    },
     publicPath: '/'
   },
   optimization: {
@@ -113,8 +121,12 @@ module.exports = {
             to: 'manifest.json'
           },
           {
-            from: path.resolve(__dirname, '../src/media/icons/maskable_icon.png'),
-            to: 'pwa/icons/maskable_icon.png'
+            from: path.resolve(__dirname, '../src/offline.html'),
+            to: 'offline.html'
+          },
+          {
+            from: path.resolve(__dirname, '../src/media/icons/'),
+            to: 'icons/'
           },
           {
             from: path.resolve(__dirname, '../src/media/audio'),
@@ -127,6 +139,6 @@ module.exports = {
     new SqipWebpackPlugin({
       // projectRoot: path.resolve(__dirname, '../'),
       mediaRoot: path.resolve(__dirname, '../src/media/')
-    })
+    }),
   ]
 }

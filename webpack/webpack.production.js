@@ -1,7 +1,6 @@
 const {merge} = require('webpack-merge')
 const common = require('./webpack.common.js')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path')
 
 module.exports = merge(common, {
@@ -38,14 +37,4 @@ module.exports = merge(common, {
       },
     ]
   },
-  plugins: [
-    new InjectManifest({
-      swSrc: path.resolve(__dirname, '../serviceWorker.js'),
-      swDest: 'serviceWorker.js',
-      exclude: [
-        // don't precache images
-        /\.(png|svg|jpe?g|webp|gif)$/
-      ]
-    })
-  ]
 })

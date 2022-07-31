@@ -44,8 +44,8 @@
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "sqip": "^1.0.0-alpha.38",
-    "sqip-plugin-primitive": "^1.0.0-alpha.40",
     "sqip-plugin-data-uri": "^1.0.0-alpha.39",
+    "sqip-plugin-primitive": "^1.0.0-alpha.40",
     "sqip-plugin-svgo": "^1.0.0-alpha.40",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.14",
@@ -55,7 +55,9 @@
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.3.0",
-    "workbox-webpack-plugin": "^5.1.4"
+    "workbox-expiration": "^6.5.4",
+    "workbox-recipes": "^6.5.4",
+    "workbox-webpack-plugin": "^6.5.4"
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001245",
@@ -64,7 +66,6 @@
     "rxjs": "^7.5.5",
     "uninstall": "^0.0.0",
     "workbox-cacheable-response": "^6.0.2",
-    "workbox-expiration": "^6.0.2",
     "workbox-precaching": "^6.0.2",
     "workbox-routing": "^6.0.2",
     "workbox-strategies": "^6.0.2"
