@@ -1,39 +1,13 @@
-//body {
-bodydsf {
-  overflow: hidden;
-  position: relative;
-  margin: 0;
-  height: 365vh;
-
-  /* hide scrollbar but allow scrolling */
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+.diver-section {
+  @include medium() {
+    max-width: 60%;
   }
-}
 
-//.page {
-.pagefsd {
-  height: 100%;
-  background: #eee;
-  overflow-x: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.content {
-  max-width: 960px;
-  width: 100%;
-  margin: 0 auto;
+  .wrapper {
+    @include small() {
+      padding: 0;
+    }
+  }
 }
 
 .animation-container-wrapper {
@@ -83,17 +57,27 @@ bodydsf {
     width: 123 / 960 * 100%;
   }
 
-  .circle {
+  .diver {
     background-image: url("/src/media/images/diver-section/diver.png");
     background-size: cover;
     background-position: center;
     width: 34%;
     padding-top: 34%;
-    transition: transform 0.5s;
     position: relative;
     left: -0.25rem;
     //transform: translateZ(-28px);
     transform: scale(1.1);
     //transform: scale(1.05);
+    opacity: 0;
+    visibility: hidden;
+    
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.transition-styles-applied {
+      transition: transform 0.5s;
+    }
   }
 }
