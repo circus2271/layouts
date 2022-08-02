@@ -1,0 +1,83 @@
+.diver-section {
+  @include medium() {
+    max-width: 60%;
+  }
+
+  .wrapper {
+    @include small() {
+      padding: 0;
+    }
+  }
+}
+
+.animation-container-wrapper {
+  padding-top: 557 / 960 * 100%;
+  position: relative;
+  // filter: blur(2.5px);
+  filter: blur(1.5px);
+  overflow: hidden;
+}
+
+.animation-container {
+  background-image: url("/src/media/images/diver-section/diver__subway-station-photo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //perspective: 450px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //transform: translateZ(15px) scale(1.25);
+  }
+
+  &::before {
+    background-image: url("/src/media/images/diver-section/diver__metro-station-column-left.png");
+    left: 0;
+    width: 123 / 960 * 100%;
+  }
+
+  &::after {
+    background-image: url("/src/media/images/diver-section/diver__metro-station-column-right.png");
+    right: 0;
+    width: 123 / 960 * 100%;
+  }
+
+  .diver {
+    background-image: url("/src/media/images/diver-section/diver.png");
+    background-size: cover;
+    background-position: center;
+    width: 34%;
+    padding-top: 34%;
+    position: relative;
+    left: -0.25rem;
+    //transform: translateZ(-28px);
+    transform: scale(1.1);
+    //transform: scale(1.05);
+    opacity: 0;
+    visibility: hidden;
+    
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.transition-styles-applied {
+      transition: transform 0.5s;
+    }
+  }
+}

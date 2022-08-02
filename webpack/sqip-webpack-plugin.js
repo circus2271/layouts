@@ -6,6 +6,8 @@ class SqipWebpackPlugin {
   constructor(options) {
     // this.projectRoot = options.projectRoot
     this.mediaRoot = options.mediaRoot
+    // this.shouldSkipProcessing = options.shouldSkipProcessing;
+    this.withSimplifiedPlaceholders = options.withDevelopmentSimplifiedPlaceholders;
     this.name = 'SqipWebpackPlugin'
     this.htmlAttributeRegexp = /sqip-webpack-plugin-src=["'](.+?)\.(jpg|webp|jpeg|png|svg)['"]/gi
     this.imageUrlRegexp = /(?<=sqip-webpack-plugin-src=["'])(.+?)\.(jpg|webp|jpeg|png|svg)/gi
@@ -27,11 +29,14 @@ class SqipWebpackPlugin {
             if (Array.isArray(attributes)) {
               const promises = await attributes.map(async attribute => {
                 const { mode } = compiler.options
-                if (mode !== 'production') {
+                if (this.withSimplifiedPlaceholders) {
                   const placeholder = this.createDefaultPlaceholder()
                   return placeholder
                 }
-
+                if (mode !== 'production') {
+                  // skip plugin; return original data
+                  return attribute
+                }
                 const imagePath = this.getImagePath(attribute)
                 console.log(`Making sqip placeholder:\n${imagePath}`)
                 return sqip({
