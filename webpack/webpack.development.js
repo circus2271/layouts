@@ -1,6 +1,7 @@
 const {merge} = require('webpack-merge')
 const common = require('./webpack.common.js')
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'development',
@@ -14,7 +15,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpe?g|gif|ico)$/,
+        test: /\.(png|svg|jpe?g|gif|ico|webp)$/,
         loader: 'file-loader',
         options: {
           esModule: false,
@@ -23,5 +24,8 @@ module.exports = merge(common, {
         }
       },
     ]
-  }
+  },
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
 })
