@@ -7,12 +7,17 @@ window['onYouTubeIframeAPIReady'] = () => {
       new YT.Player(player, {
         height: '100%',
         width: '100%',
-        videoId: player.dataset.videoId
-      });
+        videoId: player.dataset.videoId,
+        // playerVars: {
+        //   // 'autoplay': 1
+        //   autoplay: 1,
+        //   mute: 1
+        // },
+      })
     }
-  }).observe();
-};
+  }).observe()
+}
 
-const tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-document.body.appendChild(tag);
+const tag = document.createElement('script')
+tag.src = 'https://www.youtube.com/iframe_api'
+document.body.appendChild(tag)
