@@ -131,6 +131,10 @@ module.exports = {
           {
             from: path.resolve(__dirname, '../src/media/audio'),
             to: 'audio/'
+          },
+          {
+            from: path.resolve(__dirname, '../src/media/images/video-thumbnails'),
+            to: 'video-thumbnails/'
           }
         ]
       }

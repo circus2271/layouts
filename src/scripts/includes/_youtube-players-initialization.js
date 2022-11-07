@@ -1,23 +1,32 @@
 import lozad from 'lozad'
 
-// such strange function declaration is used to prevent webpack's function name changing and minification
+const isMobile = !!navigator.userAgent && navigator.userAgent.match(/(iphone|ipad|ipod|android|webos|blackberry|windows phone)/gi)
+
 window['onYouTubeIframeAPIReady'] = () => {
-  lozad('.js-youtube-player-wrapper .js-player', {
-    load: player => {
-      new YT.Player(player, {
-        height: '100%',
-        width: '100%',
-        videoId: player.dataset.videoId,
-        // playerVars: {
-        //   // 'autoplay': 1
-        //   autoplay: 1,
-        //   mute: 1
-        // },
-      })
+  lozad('.js-youtube-placeholder-image', {
+    // TODO: rewrite
+    loaded: placeholderImage => {
+      const playerWrapper = placeholderImage.closest('.js-youtube-player-wrapper')
+      const player = playerWrapper.querySelector('.js-player')
+      const placeholderImageWrapper = placeholderImage.closest('.js-youtube-placeholder-image-wrapper')
+      placeholderImageWrapper.classList.add('placeholder-image-loaded')
+
+      placeholderImageWrapper.onclick = () => {
+        new YT.Player(player, {
+          height: '100%',
+          width: '100%',
+          videoId: player.dataset.videoId,
+          playerVars: {
+            autoplay: isMobile ? 0 : 1,
+          },
+        })
+
+        playerWrapper.classList.add('bg-transparent')
+        placeholderImageWrapper.classList.add('hidden')
+      }
     }
   }).observe()
 }
-
 const tag = document.createElement('script')
 tag.src = 'https://www.youtube.com/iframe_api'
 document.body.appendChild(tag)
