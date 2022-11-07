@@ -1,12 +1,19 @@
 .videos-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-bottom: 2rem + 1.25rem;
+  flex-direction: column;
 
-  //@include big() {
-  //  gap: 1rem;
-  //}
+  @include medium() {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 4.25rem;
+  }
+
+  &.wrapper {
+    @include small() {
+      padding: 0;
+    }
+  }
 
   .row.journal {
     @include medium() {
@@ -15,14 +22,12 @@
   }
 
   .article.article--video {
+    margin-bottom: 1.5rem;
+
     @include medium() {
       margin-bottom: 0;
       flex-basis: calc(50% - 1.25rem / 2);;
     }
-
-    //@include big() {
-    //  flex-basis: calc(33% - 2rem / 3)
-    //}
 
     &:nth-of-type(2n) {
       @include medium() {
@@ -48,7 +53,7 @@ article.article--video .wrapper {
   overflow: hidden;
   padding-top: 56.25%;
   position: relative;
-  margin-bottom: 1.25rem;
+  //margin-bottom: 1.25rem;
   background-color: #eee;
 
   @include medium() {
