@@ -2,13 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
-  margin-bottom: 2rem + 1.25rem;;
+  margin-bottom: 2rem + 1.25rem;
 
-    .row.journal {
-      @include medium() {
-        max-width: 100%;
-      }
+  //@include big() {
+  //  gap: 1rem;
+  //}
+
+  .row.journal {
+    @include medium() {
+      max-width: 100%;
     }
+  }
 
   .article.article--video {
     @include medium() {
@@ -16,9 +20,15 @@
       flex-basis: calc(50% - 1.25rem / 2);;
     }
 
+    //@include big() {
+    //  flex-basis: calc(33% - 2rem / 3)
+    //}
+
     &:nth-of-type(2n) {
-      position: relative;
-      top: 2rem;
+      @include medium() {
+        position: relative;
+        top: 2rem;
+      }
     }
 
     .wrapper {
@@ -26,7 +36,6 @@
         padding: 0;
       }
     }
-
   }
 }
 
