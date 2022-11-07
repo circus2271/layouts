@@ -1,8 +1,9 @@
-import { distinctUntilChanged, fromEvent, map, filter, throttleTime, tap } from 'rxjs'
+import { distinctUntilChanged, fromEvent, map, filter, throttleTime } from 'rxjs'
 
 let prevScroll
 let buttonVisible = true
 let ignoreScrollEvents = false
+
 fromEvent(document, 'scroll', { passive: true })
   .pipe(
     throttleTime(50),
@@ -38,7 +39,7 @@ fromEvent(document, 'scroll', { passive: true })
 const floatingButton = document.querySelector('.js-floating-action-button'),
   mobileFullScreenMenu = document.querySelector('.js-mobile-fullscreen-menu')
 
-mobileFullScreenMenu.classList.add('initialize-transitions');
+mobileFullScreenMenu.classList.add('initialize-transitions')
 
 floatingButton.onclick = () => {
   floatingButton.classList.toggle('active')
@@ -48,9 +49,9 @@ floatingButton.onclick = () => {
 
 const videoPlayers = document.querySelectorAll('.js-player')
 
-// TODO: rewrite with .map + join('')
-const html = [...videoPlayers].reduce((previousValue, currentValue) => {
-  const { videoTitle, videoId } = currentValue.dataset
+const html = [...videoPlayers].map(player => {
+  const { videoTitle, videoId } = player.dataset
+
   const markup = `
     <li>
       <a href="#${videoId}">
@@ -59,8 +60,8 @@ const html = [...videoPlayers].reduce((previousValue, currentValue) => {
     </li>
   `
 
-  return previousValue + markup
-}, ``)
+  return markup
+}).join('')
 
 const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-titles-list')
 videoTitlesList.innerHTML = html

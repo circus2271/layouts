@@ -1,6 +1,5 @@
 import lozad from 'lozad'
-
-const isMobile = !!navigator.userAgent && navigator.userAgent.match(/(iphone|ipad|ipod|android|webos|blackberry|windows phone)/gi)
+import { isMobile } from './helpers.js'
 
 window['onYouTubeIframeAPIReady'] = () => {
   lozad('.js-youtube-placeholder-image', {
@@ -17,7 +16,7 @@ window['onYouTubeIframeAPIReady'] = () => {
           width: '100%',
           videoId: player.dataset.videoId,
           playerVars: {
-            autoplay: isMobile ? 0 : 1,
+            autoplay: isMobile() ? 0 : 1,
           },
         })
 
