@@ -1,10 +1,11 @@
 import { distinctUntilChanged, fromEvent, map, filter, throttleTime } from 'rxjs'
+import { scroll$ } from './helpers'
 
 let prevScroll
 let buttonVisible = true
 let ignoreScrollEvents = false
 
-fromEvent(document, 'scroll', { passive: true })
+scroll$
   .pipe(
     throttleTime(50),
     filter(() => ignoreScrollEvents === false),

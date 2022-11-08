@@ -13,7 +13,6 @@
 .animation-container-wrapper {
   padding-top: 557 / 960 * 100%;
   position: relative;
-  // filter: blur(2.5px);
   filter: blur(1.5px);
   overflow: hidden;
 }
@@ -25,13 +24,11 @@
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
-  position: relative;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  //perspective: 450px;
 
   &::before,
   &::after {
@@ -42,7 +39,6 @@
     z-index: 2;
     background-repeat: no-repeat;
     background-size: cover;
-    //transform: translateZ(15px) scale(1.25);
   }
 
   &::before {
@@ -65,9 +61,7 @@
     padding-top: 34%;
     position: relative;
     left: -0.25rem;
-    //transform: translateZ(-28px);
     transform: scale(1.1);
-    //transform: scale(1.05);
     opacity: 0;
     visibility: hidden;
     

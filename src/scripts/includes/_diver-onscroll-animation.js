@@ -1,26 +1,25 @@
+import { scroll$ } from './helpers'
+
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
 const diver = animationContainer.querySelector('.js-diver')
 // we will devide animation container height by several parts to simplify up/down animation
 const verticalFractions = 6
-const fractionalHeight = animationContainer.clientHeight / verticalFractions
-
-const diverHeight = diver.clientHeight
-const diverCenterY = () => diver.offsetTop + (diverHeight / 2)
+const fractionHeight = animationContainer.clientHeight / verticalFractions
 
 const diverAnimationBreakpoints = [
   {
     scrolledDistancePercent: 10,
-    y: -fractionalHeight,
+    y: -fractionHeight,
     rotate: 0
   },
   {
     scrolledDistancePercent: 20,
-    y: -fractionalHeight * 1.6,
+    y: -fractionHeight * 1.6,
     rotate: 0
   },
   {
     scrolledDistancePercent: 30,
-    y: -fractionalHeight,
+    y: -fractionHeight,
     rotate: 20
   },
   {
@@ -30,17 +29,17 @@ const diverAnimationBreakpoints = [
   },
   {
     scrolledDistancePercent: 40,
-    y: fractionalHeight,
+    y: fractionHeight,
     rotate: 20
   },
   {
     scrolledDistancePercent: 45,
-    y: fractionalHeight * 1.5,
+    y: fractionHeight * 1.5,
     rotate: 20
   },
   {
     scrolledDistancePercent: 55,
-    y: fractionalHeight,
+    y: fractionHeight,
     rotate: 0
   },
   {
@@ -50,24 +49,24 @@ const diverAnimationBreakpoints = [
   },
   {
     scrolledDistancePercent: 80,
-    y: -fractionalHeight,
+    y: -fractionHeight,
     rotate: -12.5
   },
   {
     scrolledDistancePercent: 90,
-    y: -fractionalHeight * 1.35,
+    y: -fractionHeight * 1.35,
     rotate: -15
   },
   {
     scrolledDistancePercent: 100,
-    y: -fractionalHeight * 2.25,
+    y: -fractionHeight * 2.25,
     rotate: -15
   }
 ]
 
 const lastBreakpoint = diverAnimationBreakpoints[diverAnimationBreakpoints.length - 1]
 
-let scrollStart = 0
+// let scrollStart = 0
 let scrollEnd = animationContainer.getBoundingClientRect().bottom + window.scrollY
 window.onresize = () => {
   scrollEnd = animationContainer.getBoundingClientRect().bottom + + window.scrollY
@@ -79,7 +78,6 @@ const handleDiverOnScrollAnimation = () => {
   const pageScrollPercent = +(currentScroll / scrollEnd * 100).toFixed(0)
   const percentsAnimated = pageScrollPercent
 
-  console.log({ currentScroll, percentsAnimated })
   if (pageScrollPercent > 100 && !firstRun) return
 
   const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsAnimated)[0]
@@ -97,4 +95,4 @@ setTimeout(() => {
   diver.classList.add('visible', 'transition-styles-applied')
 })
 
-window.addEventListener('scroll', _ => handleDiverOnScrollAnimation(), { passive: true })
+scroll$.subscribe(() => handleDiverOnScrollAnimation())

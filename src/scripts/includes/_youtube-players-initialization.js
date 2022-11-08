@@ -1,5 +1,5 @@
 import lozad from 'lozad'
-import { isMobile } from './helpers.js'
+import { isMobile } from './helpers'
 
 window['onYouTubeIframeAPIReady'] = () => {
   lozad('.js-youtube-placeholder-image', {
