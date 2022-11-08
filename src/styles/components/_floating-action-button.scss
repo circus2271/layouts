@@ -103,8 +103,15 @@
   li {
     position: relative;
     margin-left: 19.1px; // hardcoded double length of '>' symbol
+    width: fit-content;
 
-    &:before {
+    &:hover::before{
+      @include medium() {
+        animation: pulse-animation .75s infinite ease-in-out;
+      }
+    }
+
+    &::before {
       content: '>';
       position: absolute;
       left: 0;
@@ -130,4 +137,3 @@
     color: #fff;
   }
 }
-

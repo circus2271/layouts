@@ -23,6 +23,7 @@
 
   .article.article--video {
     margin-bottom: 1.5rem;
+    position: relative;
 
     @include medium() {
       margin-bottom: 0;
@@ -34,6 +35,11 @@
         position: relative;
         top: 2rem;
       }
+    }
+
+    .youtube-video-anchor-element {
+      position: absolute;
+      top: -1.25rem;
     }
 
     .wrapper {

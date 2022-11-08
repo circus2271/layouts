@@ -20,7 +20,7 @@ window['onYouTubeIframeAPIReady'] = () => {
           },
         })
 
-        playerWrapper.classList.add('bg-transparent')
+        // playerWrapper.classList.add('bg-transparent')
         placeholderImageWrapper.classList.add('hidden')
       }
     }

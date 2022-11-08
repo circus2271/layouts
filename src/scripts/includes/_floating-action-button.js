@@ -66,31 +66,7 @@ const html = [...videoPlayers].map(player => {
 const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-titles-list')
 videoTitlesList.innerHTML = html
 
-fromEvent(window, 'popstate')
+fromEvent(videoTitlesList, 'click')
   .pipe(
-    filter(() => !!window.location.hash),
-    map(() => {
-      const possibleVideoId = window.location.hash.slice(1),
-        playerEl = document.querySelector(`[data-video-id="${possibleVideoId}"]`),
-        distanceToPlayer = playerEl.getBoundingClientRect().top,
-        distanceWithGap = distanceToPlayer - 20
-
-      return distanceWithGap
-    })
-  ).subscribe({
-  next: scrollDistance => {
-    floatingButton.classList.remove('active')
-    mobileFullScreenMenu.classList.remove('visible')
-    document.body.classList.remove('overflow-hidden')
-    ignoreScrollEvents = true
-    window.scrollBy(0, scrollDistance)
-
-    setTimeout(() => {
-      // hack using event loop
-      // this code will be executed not immediately, but after short delay
-      // "on next tick"
-      ignoreScrollEvents = false
-    }, 0)
-  },
-  error: console.log
-})
+    filter(el => el.target.tagName === 'A')
+  ).subscribe(() => floatingButton.click())
