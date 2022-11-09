@@ -40,7 +40,7 @@ const floatingButton = document.querySelector('.js-floating-action-button'),
 mobileFullScreenMenu.classList.add('initialize-transitions')
 
 floatingButton.onclick = (e) => {
-  e.stopPropagation();
+  e.stopPropagation()
 
   floatingButton.classList.toggle('active')
   mobileFullScreenMenu.classList.toggle('visible')
@@ -67,11 +67,10 @@ const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-title
 videoTitlesList.innerHTML = html
 
 fromEvent(videoTitlesList, 'click')
-  .pipe(
-    filter(el => el.target.tagName === 'A'),
-  ).subscribe(() => floatingButton.click())
+  .pipe(filter(el => el.target.tagName === 'A'))
+  .subscribe(e => floatingButton.click())
 
 fromEvent(document, 'click')
-  .pipe(filter(() => mobileFullScreenMenu.classList.contains('visible')))
+  .pipe(filter(e => mobileFullScreenMenu.classList.contains('visible') && !e.target.closest('.js-mobile-fullscreen-menu')))
   .subscribe(() => floatingButton.click())
 
