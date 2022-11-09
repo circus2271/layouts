@@ -1,4 +1,4 @@
-import { distinctUntilChanged, fromEvent, map, filter, throttleTime, from, switchMap, tap, BehaviorSubject } from 'rxjs'
+import { distinctUntilChanged, fromEvent, map, filter, throttleTime } from 'rxjs'
 import { isMobile, scroll$ } from './helpers'
 
 let prevScroll

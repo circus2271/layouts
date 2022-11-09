@@ -126,7 +126,7 @@
 
     &:hover::before{
       @include medium() {
-        animation: pulse-animation 1s infinite ease-in-out;
+        animation: pulse-animation .85s infinite ease-in-out;
       }
     }
 
