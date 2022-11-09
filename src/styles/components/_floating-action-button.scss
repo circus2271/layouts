@@ -68,7 +68,10 @@
 
   &.visible {
     visibility: visible;
-    opacity: 1;
+
+    // if opacity is set to 1, anchor scrolling on mobile won't work
+    // it happens on chrome mobile, but works on firefox
+    opacity: .999;
 
     .animation-box {
       transform: scale(1);

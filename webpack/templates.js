@@ -7,7 +7,13 @@ const templates = [
   }
 ]
 
-// inject scripts before closing body tag
-templates.forEach(template => template.inject = 'body')
+templates.forEach(template => {
+  // set script attribute to 'defer'
+  // that means: load scripts in a non-blocking manner
+  // and execute them after DOM is ready
+  template.scriptLoading = 'defer'
+  // inject scripts before closing body tag
+  template.inject = 'body'
+})
 
 module.exports = templates

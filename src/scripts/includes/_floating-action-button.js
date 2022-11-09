@@ -27,12 +27,9 @@ scroll$
   )
   .subscribe({
     next: buttonVisible => {
-      if (buttonVisible) {
-        floatingButton.classList.remove('hidden')
-      }
-      if (buttonVisible === false) {
+      buttonVisible ?
+        floatingButton.classList.remove('hidden') :
         floatingButton.classList.add('hidden')
-      }
     },
     error: console.log
   })
