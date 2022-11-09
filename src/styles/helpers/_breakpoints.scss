@@ -1,6 +1,7 @@
 $extra-small-end: 479px;
 $medium-start: 768px;
 $big-start: 1200px;
+$very-big-start: 1600px;
 
 @mixin extra-small() {
   @media screen and (max-width: $extra-small-end) {
@@ -22,6 +23,12 @@ $big-start: 1200px;
 
 @mixin big() {
   @media screen and (min-width: $big-start) {
+    @content;
+  }
+}
+
+@mixin very-big() {
+  @media screen and (min-width: $very-big-start) {
     @content;
   }
 }

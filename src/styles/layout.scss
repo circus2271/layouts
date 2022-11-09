@@ -1,9 +1,8 @@
 @import 'components/footer';
-@import 'components/_separator';
 @import "components/plyr-player";
 @import "components/youtube-players";
 @import "components/floating-action-button";
-@import "components/diver-onscroll-animation.";
+@import "components/diver-onscroll-animation";
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -18,7 +17,13 @@ body {
   border-top: 20px solid lighten($primary-color, 10%);
 
   &.overflow-hidden {
-    overflow: hidden;
+    &--xs-s-m {
+      overflow: hidden;
+      
+      @include big() {
+        overflow: auto;
+      }
+    }
   }
 }
 
@@ -65,6 +70,13 @@ strong {
 
   @include big() {
     padding-top: 3rem;
+  }
+
+  .content {
+    @include very-big() {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
   }
 }
 

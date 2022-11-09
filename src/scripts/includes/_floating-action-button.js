@@ -1,5 +1,5 @@
-import { distinctUntilChanged, fromEvent, map, filter, throttleTime } from 'rxjs'
-import { scroll$ } from './helpers'
+import { distinctUntilChanged, fromEvent, map, filter, throttleTime, from, switchMap, tap, BehaviorSubject } from 'rxjs'
+import { isMobile, scroll$ } from './helpers'
 
 let prevScroll
 let buttonVisible = true
@@ -8,7 +8,7 @@ let ignoreScrollEvents = false
 scroll$
   .pipe(
     throttleTime(50),
-    filter(() => ignoreScrollEvents === false),
+    filter(() => ignoreScrollEvents === false && isMobile()),
     map(() => {
       const currentScroll = window.scrollY
 
@@ -39,10 +39,12 @@ const floatingButton = document.querySelector('.js-floating-action-button'),
 
 mobileFullScreenMenu.classList.add('initialize-transitions')
 
-floatingButton.onclick = () => {
+floatingButton.onclick = (e) => {
+  e.stopPropagation();
+
   floatingButton.classList.toggle('active')
   mobileFullScreenMenu.classList.toggle('visible')
-  document.body.classList.toggle('overflow-hidden')
+  document.body.classList.toggle('overflow-hidden--xs-s-m')
 }
 
 const videoPlayers = document.querySelectorAll('.js-player')
@@ -64,7 +66,12 @@ const html = [...videoPlayers].map(player => {
 const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-titles-list')
 videoTitlesList.innerHTML = html
 
-fromEvent(videoTitlesList, 'click')
+fromEvent(videoTitlesList, 'click', {capture: true})
   .pipe(
-    filter(el => el.target.tagName === 'A')
+    filter(el => el.target.tagName === 'A'),
   ).subscribe(() => floatingButton.click())
+
+fromEvent(document, 'click')
+  .pipe(filter(() => mobileFullScreenMenu.classList.contains('visible')))
+  .subscribe(() => floatingButton.click())
+

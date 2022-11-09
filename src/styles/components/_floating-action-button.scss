@@ -44,6 +44,15 @@
   padding: 2rem 0 0;
   color: #fff;
 
+  @include big() {
+    transform: translateX(100%);
+    height: 400px;
+    top: unset;
+    left: unset;
+    border-radius: 3.5px;
+    box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f; // shadow from https://material.angular.io/components/button/overview
+  }
+
   .animation-box {
     background: #ff4500; //orangered
     position: absolute;
@@ -61,6 +70,10 @@
     transition-property: visibility, opacity;
     transition-duration: .25s;
 
+    @include big() {
+      transition-property: visibility, opacity, transform;
+    }
+
     .animation-box {
       transition: transform .25s, visibility .125s, opacity .25s;
     }
@@ -73,6 +86,9 @@
     // it happens on chrome mobile, but works on firefox
     opacity: .999;
 
+    @include big() {
+      transform: translateX(0);
+    }
     .animation-box {
       transform: scale(1);
       visibility: visible;
@@ -110,7 +126,7 @@
 
     &:hover::before{
       @include medium() {
-        animation: pulse-animation .75s infinite ease-in-out;
+        animation: pulse-animation 1s infinite ease-in-out;
       }
     }
 
@@ -126,6 +142,11 @@
       height: 1.3 * 1.3rem;
       display: flex;
       align-items: center;
+    }
+
+    @include big() {
+      width: auto;
+      max-width: 500px;
     }
   }
 
