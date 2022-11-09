@@ -13,7 +13,7 @@ templates.forEach(template => {
   // and execute them after DOM is ready
   template.scriptLoading = 'defer'
   // inject scripts before closing body tag
-  template.inject = 'body'
+  // template.inject = 'body'
 })
 
 module.exports = templates
