@@ -66,7 +66,7 @@ const html = [...videoPlayers].map(player => {
 const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-titles-list')
 videoTitlesList.innerHTML = html
 
-fromEvent(videoTitlesList, 'click', {capture: true})
+fromEvent(videoTitlesList, 'click')
   .pipe(
     filter(el => el.target.tagName === 'A'),
   ).subscribe(() => floatingButton.click())
