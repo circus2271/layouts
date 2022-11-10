@@ -1,0 +1,63 @@
+.pagetop-navbar {
+  padding: 1.5rem 1.25rem;
+  //background: lightpink;
+  //background: lightpink;
+  background-image: linear-gradient(45deg, red 25%, orange, yellow, green, blue, red 75%);
+  background-image: linear-gradient(45deg, red 7%, orange, yellow, green, blue, red 92%);
+  background-image: linear-gradient(45deg, red 25%, orange, yellow, green, blue, red 75%);
+  background-size:  400% 100%;
+  background-size:  100% 100%;
+  background-size:  200% 100%;
+  backdround-repeat: no-repeat;
+  //animation: animateGradient 20s infinite;
+  //animation: animateGradient 10s infinite linear;
+  //animation: animateGradient 10s infinite ease-in-out;
+  //animation: animateGradient1 20s infinite;
+  color: #fff;
+
+  @include small() {
+    animation-duration: 2.5s;
+  }
+
+  @keyframes animateGradient {
+    0% {
+      background-position: 0% 0%;
+    }
+
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+
+  @include medium() {
+    padding: 1.5rem 2.5rem;
+  }
+
+  &__wrapper {
+    @include xl-wrapper();
+    display: flex;
+    align-items: center;
+  }
+
+  .flex-spacer {
+    flex-grow: 1;
+  }
+
+  h2.title {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+//.telegram-icon {
+  /*width: 24px;*/
+  /*height: 24px;*/
+  //width: 1.5rem;
+//}
+
+//.telegram-icon svg {
+//  width: 100%;
+//  height: 100%;
+//}

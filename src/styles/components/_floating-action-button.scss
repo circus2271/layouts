@@ -54,7 +54,8 @@
   }
 
   .animation-box {
-    background: #ff4500; //orangered
+    //background: #ff4500; //orangered
+    background: linear-gradient(45deg, lightpink, red, #33be59, lightblue);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -89,6 +90,7 @@
     @include big() {
       transform: translateX(0);
     }
+
     .animation-box {
       transform: scale(1);
       visibility: visible;
@@ -124,7 +126,7 @@
     margin-left: 19.1px; // hardcoded double length of '>' symbol
     width: fit-content;
 
-    &:hover::before{
+    &:hover::before {
       @include medium() {
         animation: pulse-animation .85s infinite ease-in-out;
       }
