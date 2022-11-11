@@ -78,7 +78,9 @@ const handleDiverOnScrollAnimation = () => {
   const pageScrollPercent = +(currentScroll / scrollEnd * 100).toFixed(0)
   const percentsAnimated = pageScrollPercent
 
+  // if (pageScrollPercent > 100) return
   if (pageScrollPercent > 100 && !firstRun) return
+  // if (pageScrollPercent > 100) return
 
   const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsAnimated)[0]
   const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsAnimated / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y

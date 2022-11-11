@@ -2,21 +2,35 @@
   padding: 1.5rem 1.25rem;
   //background: lightpink;
   //background: lightpink;
-  background-image: linear-gradient(45deg, red 25%, orange, yellow, green, blue, red 75%);
-  background-image: linear-gradient(45deg, red 7%, orange, yellow, green, blue, red 92%);
-  background-image: linear-gradient(45deg, red 25%, orange, yellow, green, blue, red 75%);
-  background-size:  400% 100%;
-  background-size:  100% 100%;
-  background-size:  200% 100%;
-  backdround-repeat: no-repeat;
+  //background-image: linear-gradient(45deg, red 25%, orange, yellow, green, blue, red 75%);
+  //background-image: linear-gradient(45deg, red 7%, orange, yellow, green, blue, red 92%);
+  //background-image: linear-gradient(45deg, red 25%, orange, yellow, green, blue, red 75%);
+  //background-image: linear-gradient(45deg, red, orange, yellow, green, blue, red);
+  background-image: linear-gradient(10deg, red, orange, yellow, green, blue, blue, green, yellow, orange, red);
+  //background-size:  400% 100%;
+  //background-size:  100% 100%;
+  background-size: 200% 100%;
+  //backdround-repeat: no-repeat;
   //animation: animateGradient 20s infinite;
   //animation: animateGradient 10s infinite linear;
+  //animation: animateGradient 20s infinite linear;
+  animation: animateGradient 5s infinite linear;
   //animation: animateGradient 10s infinite ease-in-out;
   //animation: animateGradient1 20s infinite;
   color: #fff;
+  //will-change: background-position;
 
-  @include small() {
-    animation-duration: 2.5s;
+  //animation: animateBg 10s linear infinite;
+  background-image: linear-gradient(45deg, #cf5c5c, #c19b4a, #def2a0, #c6ee4a, #42eca6, #64b3d9, #208ea2, #498ada, #5b73df, #897ed3, #cf5c5c, #c19b4a);
+  background-size: 100% 1100%;
+
+  @keyframes animateBg {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
   }
 
   @keyframes animateGradient {
@@ -25,8 +39,12 @@
     }
 
     100% {
-      background-position: 200% 0%;
+      background-position: 100% 0%;
     }
+  }
+
+  @include small() {
+    animation-duration: 2.5s;
   }
 
   @include medium() {
@@ -49,12 +67,13 @@
     padding: 0;
     margin: 0;
   }
+
 }
 
 //.telegram-icon {
-  /*width: 24px;*/
-  /*height: 24px;*/
-  //width: 1.5rem;
+/*width: 24px;*/
+/*height: 24px;*/
+//width: 1.5rem;
 //}
 
 //.telegram-icon svg {

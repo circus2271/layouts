@@ -1,4 +1,4 @@
-import { distinctUntilChanged, fromEvent, map, filter, throttleTime } from 'rxjs'
+import { distinctUntilChanged, fromEvent, map, filter } from 'rxjs'
 import { isMobile, scroll$ } from './helpers'
 
 let prevScroll
@@ -7,7 +7,6 @@ let ignoreScrollEvents = false
 
 scroll$
   .pipe(
-    throttleTime(50),
     filter(() => ignoreScrollEvents === false && isMobile()),
     map(() => {
       const currentScroll = window.scrollY
