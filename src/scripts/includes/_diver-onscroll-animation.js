@@ -67,34 +67,37 @@ const diverAnimationBreakpoints = [
 
 const lastBreakpoint = diverAnimationBreakpoints[diverAnimationBreakpoints.length - 1]
 
-const getScrollEnd = () => animationContainer.getBoundingClientRect().bottom + window.scrollY;
-const getScrollStart = () => {
-  const scrollStart = scrollEnd - window.innerHeight;
-  return scrollStart < 0 ? 0 : scrollStart;
-}
+const getScrollStartY = () => {
+  const startRelativeToPageTop = animationContainer.getBoundingClientRect().top + window.scrollY
+  const gap = window.innerHeight
+  const startWithGap = startRelativeToPageTop - gap
 
-let scrollEnd = getScrollEnd()
-let scrollStart = getScrollStart();
-window.onresize = () => {
-  scrollEnd = getScrollEnd()
-  scrollStart = getScrollStart();
-}
+  return startWithGap > 0 ? startWithGap : 0
+};
+const getScrollEndY = () => animationContainer.getBoundingClientRect().bottom + window.scrollY;
 
-let firstRun = true
+let scrollStart = getScrollStartY();
+let scrollEnd = getScrollEndY();
+
+window.addEventListener('resize', _ => {
+  scrollStart = getScrollStartY();
+  scrollEnd = getScrollEndY();
+})
+
 const handleDiverOnScrollAnimation = (currentScroll) => {
-  const pageScrollPercent = +((currentScroll - scrollStart) / scrollEnd * 100).toFixed(0)
-  const percentsAnimated = pageScrollPercent
+  const delta = scrollEnd - scrollStart;
 
-  if (pageScrollPercent > 100 && !firstRun) return
+  let percentsScrolled = ((currentScroll - scrollStart) / delta) * 100
+  // normalize value to set diver's initial position on a first run
+  if (percentsScrolled > 100) percentsScrolled = 100
+  if (percentsScrolled < 0) percentsScrolled = 0
+  console.log(percentsScrolled)
 
-  const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsAnimated)[0]
-  const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsAnimated / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
+  const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsScrolled)[0]
+  const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsScrolled / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
 
   const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
-  diver.style.transform = `translateX(${percentsAnimated * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px)`
-
-  // TODO: improve this
-  firstRun = false;
+  diver.style.transform = `translateX(${percentsScrolled * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px)`
 }
 
 handleDiverOnScrollAnimation(window.scrollY)
@@ -103,5 +106,5 @@ setTimeout(() => {
 })
 
 scroll$
-  .pipe(tap(() => console.log({scrollStart, scrollEnd})), filter(currentScroll => currentScroll > scrollStart && currentScroll < scrollEnd))
+  .pipe(filter(currentScroll => currentScroll > scrollStart && currentScroll < scrollEnd))
   .subscribe((currentScroll) => handleDiverOnScrollAnimation(currentScroll))
