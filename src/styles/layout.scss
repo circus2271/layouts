@@ -59,14 +59,13 @@ strong {
 }
 
 .page {
-  //padding-top: 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
   @include medium() {
-    padding-top: 5rem;
+    padding-top: 2.5rem;
   }
 
   @include big() {
@@ -84,11 +83,14 @@ strong {
     h1.header-title {
       margin-top: 2.25rem;
       position: relative;
+
+      @include extra-small() {
+        display: none;
+      }
     }
 
     &::before,
     &::after {
-      //content: '';
       position: absolute;
       top: 0;
       left: 0;
