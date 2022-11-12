@@ -1,8 +1,9 @@
-@import 'components/footer';
-@import "components/plyr-player";
+@import "components/navbar";
+@import "components/diver-onscroll-animation";
 @import "components/youtube-players";
 @import "components/floating-action-button";
-@import "components/diver-onscroll-animation";
+@import "components/plyr-player";
+@import 'components/footer';
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -58,7 +59,7 @@ strong {
 }
 
 .page {
-  padding-top: 1rem;
+  //padding-top: 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -72,11 +73,16 @@ strong {
     padding-top: 3rem;
   }
 
-  .content {
-    @include very-big() {
-      max-width: 1300px;
-      margin: 0 auto;
+  .pagetop-header h1 {
+    margin-top: 2.25rem;
+
+    @include medium() {
+      margin-top: 1rem;
     }
+  }
+
+  .content {
+    @include xl-wrapper();
   }
 }
 

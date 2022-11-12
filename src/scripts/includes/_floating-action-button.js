@@ -9,9 +9,7 @@ scroll$
   .pipe(
     throttleTime(50),
     filter(() => ignoreScrollEvents === false && isMobile()),
-    map(() => {
-      const currentScroll = window.scrollY
-
+    map((currentScroll) => {
       if (currentScroll - prevScroll > 30) {
         buttonVisible = false
       }

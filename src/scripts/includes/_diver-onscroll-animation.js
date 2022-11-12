@@ -1,4 +1,5 @@
 import { scroll$ } from './helpers'
+import { filter } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
 const diver = animationContainer.querySelector('.js-diver')
@@ -73,8 +74,7 @@ window.onresize = () => {
 }
 
 let firstRun = true
-const handleDiverOnScrollAnimation = () => {
-  const currentScroll = window.scrollY
+const handleDiverOnScrollAnimation = (currentScroll) => {
   const pageScrollPercent = +(currentScroll / scrollEnd * 100).toFixed(0)
   const percentsAnimated = pageScrollPercent
 
@@ -90,9 +90,11 @@ const handleDiverOnScrollAnimation = () => {
   firstRun = false;
 }
 
-handleDiverOnScrollAnimation()
+handleDiverOnScrollAnimation(window.scrollY)
 setTimeout(() => {
   diver.classList.add('visible', 'transition-styles-applied')
 })
 
-scroll$.subscribe(() => handleDiverOnScrollAnimation())
+scroll$
+  .pipe(filter(currentScroll => currentScroll < scrollEnd))
+  .subscribe((currentScroll) => handleDiverOnScrollAnimation(currentScroll))

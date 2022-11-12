@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-  {{> includes/analytics-head-scripts }}
+  {{> components/analytics-head-scripts }}
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,18 +29,20 @@
 </head>
 <body>
 
-<div class="page">
-  {{!-- {{> includes/navbar }} --}}
-  {{!-- hidden navbar may be useful for position absolute/fixed navbars --}}
-  {{!-- {{> includes/navbar hidden="true"}} --}}
+{{> components/navbar }}
 
-  {{> includes/floating-action-button }}
+<div class="page">
+  {{!-- {{> components/navbar }} --}}
+  {{!-- hidden navbar may be useful for position absolute/fixed navbars --}}
+  {{!-- {{> components/navbar hidden="true"}} --}}
+
+  {{> components/floating-action-button }}
 
   <div class="content">
     {{#> content }}{{/ content }}
   </div>
 
-  {{> includes/footer }}
+  {{> components/footer }}
 
 </div>
 <script>

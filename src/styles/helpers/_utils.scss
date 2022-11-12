@@ -1,0 +1,6 @@
+@mixin xl-wrapper () {
+  @include very-big() {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,45 @@
+.pagetop-navbar {
+  padding: 1.5rem 1.25rem;
+  background: lightpink;
+
+  // TODO: create and animate background gradient
+  // animation example:
+  // https://codepen.io/mundisyum/pen/RwJVbYg
+
+  @include small() {
+    animation-duration: 2.5s;
+  }
+
+  @include medium() {
+    padding: 1.5rem 2.5rem;
+  }
+
+  &__wrapper {
+    @include xl-wrapper();
+    display: flex;
+    align-items: center;
+  }
+
+  .flex-spacer {
+    flex-grow: 1;
+  }
+
+  h2.title {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+//.telegram-icon {
+/*width: 24px;*/
+/*height: 24px;*/
+//width: 1.5rem;
+//}
+
+//.telegram-icon svg {
+//  width: 100%;
+//  height: 100%;
+//}

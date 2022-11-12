@@ -78,12 +78,30 @@ article.article--video .wrapper {
     bottom: 0;
     cursor: pointer;
 
+    &.adult-video::after {
+      content: '18+';
+      top: 1rem;
+      right: 1rem;
+      position: absolute;
+      padding: .25rem .4rem;
+      font-size: 1.2rem;
+      background-color: ghostwhite;
+      border-radius: 3.5px;
+
+      @include medium() {
+        top: 1.5rem;
+        right: 1.25rem;
+        padding: .35rem .7rem;
+        letter-spacing: -1px;
+      }
+    }
+
     &.placeholder-image-loaded {
       .youtube-placeholder-image {
         opacity: 1;
       }
 
-      .youtube-red-button {
+      .play-video-button {
         opacity: 1;
       }
     }
@@ -99,15 +117,13 @@ article.article--video .wrapper {
       opacity: 0;
     }
 
-    .youtube-red-button {
+    .play-video-button {
       cursor: pointer;
       position: absolute;
       left: 50%;
       top: 50%;
       width: 68px;
       height: 48px;
-      margin-left: -34px;
-      margin-top: -24px;
       transition: opacity .25s cubic-bezier(0, 0, 0.2, 1);
       transition-delay: .125s;
       //transition-delay: .25s;
@@ -115,6 +131,12 @@ article.article--video .wrapper {
       padding: 0;
       border: none;
       opacity: 0;
+      transform: translate(-50%, -50%);
+      color: #897ed3;
+
+      @include medium() {
+        color: #f00;
+      }
     }
   }
 }
@@ -128,7 +150,6 @@ article.article--video .wrapper {
   max-width: 100%;
   max-height: 100%;
   display: block;
-  //opacity: 0;
 }
 
 
