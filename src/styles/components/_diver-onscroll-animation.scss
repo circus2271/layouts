@@ -1,5 +1,8 @@
 .diver-section {
+  margin: 2.5rem 0;
+
   @include medium() {
+    margin: 3rem 0;
     max-width: 60%;
   }
 

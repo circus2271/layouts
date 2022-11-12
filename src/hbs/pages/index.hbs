@@ -1,15 +1,30 @@
 {{#> layouts/base }}
   {{#*inline "content"}}
 
-    <header class="header">
+    <header class="header pagetop-header">
       <div class="wrapper">
         <h1 class="header-title">
-        <span>
-          hi
-        </span>
+          <span>
+            hi
+          </span>
         </h1>
       </div>
     </header>
+
+    <div class="videos-section wrapper">
+
+      {{> components/youtube-video
+          videoTitle="Modest Mouse - Missed the Boat (Official Music Video)"
+          videoId="JP_jaogKAdM"
+      }}
+
+      {{> components/youtube-video
+          videoTitle="Modest Mouse - The Whale Song (Official Music Video)"
+          videoId="6_pnlYYHO1g"
+          adult="true"
+      }}
+
+    </div>
 
     {{> components/diver-onscroll-animation }}
 
