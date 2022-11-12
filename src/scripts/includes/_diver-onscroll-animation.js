@@ -1,5 +1,5 @@
 import { scroll$ } from './helpers'
-import { filter } from 'rxjs'
+import { filter, tap } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
 const diver = animationContainer.querySelector('.js-diver')
@@ -67,15 +67,22 @@ const diverAnimationBreakpoints = [
 
 const lastBreakpoint = diverAnimationBreakpoints[diverAnimationBreakpoints.length - 1]
 
-// let scrollStart = 0
-let scrollEnd = animationContainer.getBoundingClientRect().bottom + window.scrollY
+const getScrollEnd = () => animationContainer.getBoundingClientRect().bottom + window.scrollY;
+const getScrollStart = () => {
+  const scrollStart = scrollEnd - window.innerHeight;
+  return scrollStart < 0 ? 0 : scrollStart;
+}
+
+let scrollEnd = getScrollEnd()
+let scrollStart = getScrollStart();
 window.onresize = () => {
-  scrollEnd = animationContainer.getBoundingClientRect().bottom + + window.scrollY
+  scrollEnd = getScrollEnd()
+  scrollStart = getScrollStart();
 }
 
 let firstRun = true
 const handleDiverOnScrollAnimation = (currentScroll) => {
-  const pageScrollPercent = +(currentScroll / scrollEnd * 100).toFixed(0)
+  const pageScrollPercent = +((currentScroll - scrollStart) / scrollEnd * 100).toFixed(0)
   const percentsAnimated = pageScrollPercent
 
   if (pageScrollPercent > 100 && !firstRun) return
@@ -96,5 +103,5 @@ setTimeout(() => {
 })
 
 scroll$
-  .pipe(filter(currentScroll => currentScroll < scrollEnd))
+  .pipe(tap(() => console.log({scrollStart, scrollEnd})), filter(currentScroll => currentScroll > scrollStart && currentScroll < scrollEnd))
   .subscribe((currentScroll) => handleDiverOnScrollAnimation(currentScroll))

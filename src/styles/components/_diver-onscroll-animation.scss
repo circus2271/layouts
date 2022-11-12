@@ -21,7 +21,7 @@
 }
 
 .animation-container {
-  background-image: url("/src/media/images/diver-section/diver__subway-station-photo.jpg");
+  background-image: url('/src/media/images/diver-section/diver__subway-station-photo.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -45,19 +45,20 @@
   }
 
   &::before {
-    background-image: url("/src/media/images/diver-section/diver__metro-station-column-left.png");
+
+    background-image: url('/src/media/images/diver-section/diver__metro-station-column-left.png');
     left: 0;
     width: 123 / 960 * 100%;
   }
 
   &::after {
-    background-image: url("/src/media/images/diver-section/diver__metro-station-column-right.png");
+    background-image: url('/src/media/images/diver-section/diver__metro-station-column-right.png');
     right: 0;
     width: 123 / 960 * 100%;
   }
 
   .diver {
-    background-image: url("/src/media/images/diver-section/diver.png");
+    background-image: url('/src/media/images/diver-section/diver.png');
     background-size: cover;
     background-position: center;
     width: 34%;

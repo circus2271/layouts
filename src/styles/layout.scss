@@ -20,7 +20,7 @@ body {
   &.overflow-hidden {
     &--xs-s-m {
       overflow: hidden;
-      
+
       @include big() {
         overflow: auto;
       }
@@ -73,8 +73,50 @@ strong {
     padding-top: 3rem;
   }
 
-  .pagetop-header h1 {
-    margin-top: 2.25rem;
+  .pagetop-header {
+    position: relative;
+
+    @include extra-small() {
+      height: 200px;
+      margin-bottom: 5rem;
+    }
+
+    h1.header-title {
+      margin-top: 2.25rem;
+      position: relative;
+    }
+
+    &::before,
+    &::after {
+      //content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: cover;
+
+      @include extra-small() {
+        content: '';
+      }
+    }
+
+    &::before {
+      background-image: url('/src/media/images/cat_with_glasses.png');
+      transform: scale(1.2);
+      width: 200px;
+      height: 200px;
+      z-index: -1;
+    }
+
+    &::after {
+      background-image: url('/src/media/images/mountains.png');
+      width: 100%;
+      bottom: 0px;
+      right: 30px;
+      background-repeat: no-repeat;
+      top: 50%;
+      left: -50%;
+      transform: scale(2);
+    }
 
     @include medium() {
       margin-top: 1rem;
@@ -182,7 +224,7 @@ strong {
 
   &::after {
     height: $ripped-bg-height-small;
-    background-image: url(media/images/ripped-bg.svg);
+    background-image: url('/src/media/images/ripped-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
     bottom: -1px;

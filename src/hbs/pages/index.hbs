@@ -5,13 +5,13 @@
       <div class="wrapper">
         <h1 class="header-title">
           <span>
-            hi
+<!--            hi-->
           </span>
         </h1>
       </div>
     </header>
 
-    <div class="videos-section wrapper">
+    <div class="videos-section wrapper row-reverse">
 
       {{> components/youtube-video
           videoTitle="Modest Mouse - Missed the Boat (Official Music Video)"
@@ -25,6 +25,28 @@
       }}
 
     </div>
+
+    <article class="article">
+      <div class="wrapper">
+        <div class="row header">
+          <h2>
+            <span>
+              Дневник 07.11.2022
+            </span>
+          </h2>
+        </div>
+        <div class="row journal">
+          Чтобы в моей жизни случалось больше хорошего и интересного, мне надо делать больше хороших дел,
+          больше помогать. <br>
+          Я не уверен в том, что понимаю какие именно это дела, но общий принцип, думаю, понятен. Можно делиться и/или
+          перераспределять вещи. Например, мне известно, что кое-кому хотелось бы получить плеер с дисками Высоцкого,
+          книгу с его стихами и увеличительную полоску, кое-кому хотелось бы получить сим-карту и карточку памяти с
+          usb адаптером, а кое-кому, возможно, пригодились бы комиксы. Помогая этим людям получить желаемое, я тоже
+          автоматически буду получать то, что нужно мне, пусть я даже и сам не до конца понимаю, что же именно мне
+          нужно.
+        </div>
+      </div>
+    </article>
 
     {{> components/diver-onscroll-animation }}
 
