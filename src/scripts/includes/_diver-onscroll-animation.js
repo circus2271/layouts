@@ -1,5 +1,5 @@
 import { scroll$ } from './helpers'
-import { filter, tap } from 'rxjs'
+import { filter } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
 const diver = animationContainer.querySelector('.js-diver')

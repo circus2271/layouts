@@ -132,7 +132,6 @@ article.article--video .wrapper {
       height: 48px;
       transition: opacity .25s cubic-bezier(0, 0, 0.2, 1);
       transition-delay: .125s;
-      //transition-delay: .25s;
       background: transparent;
       padding: 0;
       border: none;
@@ -140,7 +139,7 @@ article.article--video .wrapper {
       transform: translate(-50%, -50%);
       color: #897ed3;
 
-      @include medium() {
+      @include big() {
         color: #f00;
       }
     }
