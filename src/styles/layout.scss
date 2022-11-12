@@ -76,7 +76,8 @@ strong {
     position: relative;
 
     @include extra-small() {
-      height: 200px;
+      height: 200px; // maybe 300px later
+      height: 225px; // maybe 300px later
       margin-bottom: 5rem;
     }
 
