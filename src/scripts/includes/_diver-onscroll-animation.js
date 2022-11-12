@@ -1,5 +1,5 @@
 import { scroll$ } from './helpers'
-import { filter, throttleTime } from 'rxjs'
+import { filter } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
 const diver = animationContainer.querySelector('.js-diver')
@@ -97,5 +97,4 @@ setTimeout(() => {
 
 scroll$
   .pipe(filter(currentScroll => currentScroll < scrollEnd))
-  // .pipe(throttleTime(25), filter(currentScroll => currentScroll < scrollEnd))
   .subscribe((currentScroll) => handleDiverOnScrollAnimation(currentScroll))

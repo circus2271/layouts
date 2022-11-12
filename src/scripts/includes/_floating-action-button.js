@@ -7,7 +7,7 @@ let ignoreScrollEvents = false
 
 scroll$
   .pipe(
-    throttleTime(75),
+    throttleTime(50),
     filter(() => ignoreScrollEvents === false && isMobile()),
     map((currentScroll) => {
       if (currentScroll - prevScroll > 30) {

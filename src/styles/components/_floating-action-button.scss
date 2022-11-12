@@ -67,6 +67,7 @@
 
     @include small {
       top: 0;
+      // TODO: fix this fixed height
       height: 35vh;
     }
   }
