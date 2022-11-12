@@ -78,21 +78,8 @@ strong {
     @include extra-small() {
       height: 250px; // maybe 300px later
       margin-bottom: 5.8rem;
-      background-color: #eef;
-      z-index: -1;
-    }
-
-    h1.header-title {
-      margin-top: 2.25rem;
-      position: relative;
-
-      @include extra-small() {
-        visibility: hidden;
-      }
-
-      @include medium () {
-        margin-bottom: 2.25rem;
-      }
+      //background-color: #eef;
+      //z-index: -1;
     }
 
     &::before,
@@ -128,6 +115,19 @@ strong {
 
     @include medium() {
       margin-top: 1rem;
+    }
+
+    h1.header-title {
+      margin-top: 2.25rem;
+      position: relative;
+
+      @include extra-small() {
+        visibility: hidden;
+      }
+
+      @include medium () {
+        margin-bottom: 2.25rem;
+      }
     }
   }
 
