@@ -65,7 +65,7 @@ strong {
   justify-content: flex-start;
 
   @include medium() {
-    padding-top: 2.5rem;
+    padding-top: 2rem;
   }
 
   @include big() {
@@ -85,7 +85,11 @@ strong {
       position: relative;
 
       @include extra-small() {
-        display: none;
+        visibility: hidden;
+      }
+
+      @include medium () {
+        margin-bottom: 2.25rem;
       }
     }
 
