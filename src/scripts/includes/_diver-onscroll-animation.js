@@ -69,7 +69,7 @@ const lastBreakpoint = diverAnimationBreakpoints[diverAnimationBreakpoints.lengt
 
 const getScrollStartY = () => {
   const startRelativeToPageTop = animationContainer.getBoundingClientRect().top + window.scrollY
-  const gap = window.innerHeight
+  const gap = window.innerHeight - window.innerHeight / 5
   const startWithGap = startRelativeToPageTop - gap
 
   return startWithGap > 0 ? startWithGap : 0
