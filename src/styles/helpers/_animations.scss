@@ -9,3 +9,19 @@
     opacity: 1;
   }
 }
+
+/* https://766.js.org/ */
+@keyframes joggle {
+  0%, 
+  50%, 
+  100% {
+    // transform:translateX(0);
+    left: 0;
+  }
+  25%,
+  75% {
+    // transform:translateX(3px);
+    // left: 4px;
+    left: 3px;
+  }
+}
