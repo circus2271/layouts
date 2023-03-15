@@ -133,7 +133,8 @@
 
     &:hover::before {
       @include medium() {
-        animation: pulse-animation .85s infinite ease-in-out;
+        // animation: pulse-animation .85s infinite ease-in-out;
+        animation: joggle .6s linear;
       }
     }
 
