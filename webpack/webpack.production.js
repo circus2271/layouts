@@ -27,7 +27,7 @@ module.exports = merge(common, {
                 plugins: [
                   'imagemin-svgo',
                   'imagemin-webp',
-                  'imagemin-gifsicle',
+                  // 'imagemin-gifsicle',
                   ['imagemin-mozjpeg', {quality: 80}],
                   ['imagemin-pngquant', {quality: [0.75, 0.85]}]
                 ],
