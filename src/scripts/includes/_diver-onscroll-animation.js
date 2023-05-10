@@ -97,7 +97,7 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
   const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsScrolled / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
 
   const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
-  diver.style.transform = `translateX(${percentsScrolled * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px)`
+  diver.style.transform = `translateX(${percentsScrolled * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
 }
 
 handleDiverOnScrollAnimation(window.scrollY)
