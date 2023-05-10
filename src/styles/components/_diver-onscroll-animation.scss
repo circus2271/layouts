@@ -58,11 +58,12 @@
   }
 
   .diver {
+    --size: 33%;
     background-image: url('/src/media/images/diver-section/diver.png');
     background-size: cover;
     background-position: center;
-    width: 34%;
-    padding-top: 34%;
+    width: var(--size);
+    padding-top: var(--size);
     position: relative;
     left: -0.25rem;
     transform: scale(1.1);
