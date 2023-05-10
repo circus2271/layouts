@@ -35,12 +35,12 @@ const diverAnimationBreakpoints = [
   },
   {
     scrolledDistancePercent: 45,
-    y: fractionHeight * 1.5,
+    y: fractionHeight * 1.15,
     rotate: 20
   },
   {
     scrolledDistancePercent: 55,
-    y: fractionHeight,
+    y: fractionHeight * 0.872,
     rotate: 0
   },
   {
