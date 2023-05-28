@@ -41,10 +41,11 @@
   overflow: auto;
   visibility: hidden;
   opacity: 0;
-  padding: 2rem 0 0;
+  padding-top: 2rem;
   color: #fff;
 
   @include big() {
+    padding-top: 0;
     transform: translateX(100%);
     height: 400px;
     top: unset;
@@ -54,21 +55,23 @@
   }
 
   .animation-box {
-    background: linear-gradient(45deg, lightpink, red, #33be59, lightblue);
+    background: linear-gradient(45deg, lightpink, #33be59, lightblue);
     position: absolute;
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 100%;
     transform-origin: right bottom;
     visibility: hidden;
     opacity: 0;
     z-index: -1;
+    top: 0;
+    height: 100%;
 
-    @include small {
-      top: 0;
-      // TODO: fix this fixed height
-      height: 35vh;
+    @include big {
+      z-index: 2;
+      top: -140px;
+      height: 150px;
+      position: sticky;
     }
   }
 
@@ -103,69 +106,87 @@
     }
   }
 
-  .fullscreen-menu__wrapper {
-    padding: 0 1.25rem;
-  }
+  .fullscreen-menu__content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: .5rem;
-    margin-left: 19.1px;
-  }
+    @include big {
+      margin-top: -107px;
+    }
 
-  h3 {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    margin-left: 19.1px;
-  }
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 0 1.25rem;
 
-  ul {
-    list-style: none;
-    background-color: #333;
-    padding: 2rem 1.25rem 3.5rem;
-    margin-bottom: 0;
-  }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: .5rem;
+        margin-left: 19.1px;
+      }
 
-  li {
-    position: relative;
-    margin-left: 19.1px; // hardcoded double length of '>' symbol
-    width: fit-content;
-
-    &:hover::before {
-      @include medium() {
-        // animation: pulse-animation .85s infinite ease-in-out;
-        animation: joggle .6s linear;
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        margin-left: 19.1px;
       }
     }
 
-    &::before {
-      content: '>';
-      position: absolute;
-      left: 0;
-      top: 0;
-      transform: translate(-200%, 0%);
-
-      // align "before" element with an anchor's tag text
-      // line height * anchor's text font size
-      height: 1.3 * 1.3rem;
+    nav {
+      flex-grow: 1;
       display: flex;
-      align-items: center;
     }
 
-    @include big() {
-      width: auto;
-      max-width: 500px;
+    ul {
+      width: 100%;
+      list-style: none;
+      background-color: #333;
+      padding: 2rem 1.25rem 3.5rem;
+      margin: 0;
     }
-  }
 
-  li:not(:last-of-type) a {
-    padding-bottom: 1.25rem;
-  }
+    li {
+      position: relative;
+      margin-left: 19.1px; // hardcoded double length of '>' symbol
+      width: fit-content;
 
-  a {
-    display: block;
-    text-decoration: none;
-    font-size: 1.3rem;
-    color: #fff;
+      &:hover::before {
+        @include medium() {
+          // animation: pulse-animation .85s infinite ease-in-out;
+          animation: joggle .6s linear;
+        }
+      }
+
+      &::before {
+        content: '>';
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-200%, 0%);
+
+        // align "before" element with an anchor's tag text
+        // line height * anchor's text font size
+        height: 1.3 * 1.3rem;
+        display: flex;
+        align-items: center;
+      }
+
+      @include big() {
+        width: auto;
+        max-width: 500px;
+      }
+    }
+
+    li:not(:last-of-type) a {
+      padding-bottom: 1.25rem;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: #fff;
+    }
   }
 }

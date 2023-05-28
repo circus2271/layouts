@@ -14,7 +14,8 @@
   "author": "mundisyum <rodionov134@gmail.com>",
   "license": "ISC",
   "engines": {
-    "node": "16.20.0"
+    "node": "16.20.0",
+    "this means node version should be 16.20": "exact 16.20"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

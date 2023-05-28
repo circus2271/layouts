@@ -206,6 +206,17 @@ strong {
   }
 }
 
+.waldo  {
+  @include small() {
+    margin-top: 2rem;
+  }
+
+  .row.journal {
+    width: 34%;
+    max-width: 250px;
+  }
+}
+
 .article.fire-and-coyotes {
   $ripped-bg-height-small: 75px;
   $ripped-bg-height-medium: 174px;
@@ -326,7 +337,8 @@ article.inst-photo {
     height: 100%;
     top: 0;
 
-    &.loaded {
+    // lozad library sets this attribute when image is lazyloaded
+    &[data-loaded="true"] {
       opacity: 1;
       visibility: visible;
     }

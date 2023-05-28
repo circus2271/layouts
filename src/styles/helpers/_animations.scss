@@ -12,16 +12,23 @@
 
 /* https://766.js.org/ */
 @keyframes joggle {
-  0%, 
-  50%, 
-  100% {
-    // transform:translateX(0);
+  0% {
     left: 0;
   }
-  25%,
-  75% {
-    // transform:translateX(3px);
-    // left: 4px;
+
+  25% {
     left: 3px;
+  }
+
+  50% {
+    left: 0;
+  }
+
+  75% {
+    left: 3px;
+  }
+
+  100% {
+    left: 0;
   }
 }

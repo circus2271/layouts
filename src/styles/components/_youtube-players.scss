@@ -1,6 +1,7 @@
 .videos-section {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @include medium() {
     flex-direction: row;
@@ -20,6 +21,30 @@
       padding: 0;
     }
   }
+
+  //maybe
+  //&.Damon_Albarn {
+  //  .article--video::after {
+  //    content: '';
+  //    //width: 400px;
+  //    //height: 500px;
+  //    width: 100%;
+  //    height: 100%;
+  //    //transform: rotate(-34deg) scale(2);
+  //    //transform: scale(1.2);
+  //    transform: scale(1.3);
+  //    //transform: rotate(-2.5deg) scale(1.5);
+  //    background: url('/src/media/images/clouds.jpg') center / cover no-repeat;
+  //    position: absolute;
+  //    z-index: -1;
+  //    //z-index: 2;
+  //    top: 0;
+  //    top: -1.25rem;
+  //    left: 0;
+  //    right: 0;
+  //    bottom: 0;
+  //  }
+  //}
 
   .row.journal {
     @include medium() {

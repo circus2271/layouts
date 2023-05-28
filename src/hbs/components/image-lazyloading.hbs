@@ -1,8 +1,17 @@
-{{!-- components/image-lazyloading src="" alt="" width="" height="" --}}
+{{!-- components/image-lazyloading src="" alt="" width="" height="" emptyPlaceholder="" --}}
 
-<img class="lozad-sqip-placeholder" width="{{ width }}" height="{{ height }}"
-     sqip-webpack-plugin-src="{{ src }}"
-     alt="low quality image placeholder">
+{{#if emptyPlaceholder}}
+  <div width="{{ width }}"
+       height="{{ height }}"
+       style="background: #fff; padding-top: calc({{height}}/{{width}} * 100%)">
+
+  </div>
+{{else}}
+  <img class="lozad-sqip-placeholder" width="{{ width }}" height="{{ height }}"
+       sqip-webpack-plugin-src="{{ src }}"
+       alt="low quality image placeholder">
+{{/if}}
+
 <img class="lozad lozad-main-image js-lozad-with-sqip-placeholder" width="{{ width }}" height="{{ height }}"
      data-src="{{ src }}"
      alt="{{ alt }}">
