@@ -206,16 +206,16 @@ strong {
   }
 }
 
-.waldo  {
-  @include small() {
-    margin-top: 2rem;
-  }
-
-  .row.journal {
-    width: 34%;
-    max-width: 250px;
-  }
-}
+//.waldo  {
+//  @include small() {
+//    margin-top: 2rem;
+//  }
+//
+//  .row.journal {
+//    width: 34%;
+//    max-width: 250px;
+//  }
+//}
 
 .article.fire-and-coyotes {
   $ripped-bg-height-small: 75px;
