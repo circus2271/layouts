@@ -14,7 +14,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpe?g|gif|ico)$/,
+        test: /\.(png|svg|jpe?g|gif|ico|webp)$/,
         loader: 'file-loader',
         options: {
           esModule: false,

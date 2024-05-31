@@ -9,7 +9,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpe?g|gif|ico)$/,
+        test: /\.(png|svg|jpe?g|gif|ico|webp)$/,
         use: [
           {
             loader: 'file-loader', // Or `url-loader` or your other loader

@@ -14,13 +14,110 @@
 }
 
 .animation-container-wrapper {
+
   padding-top: 557 / 960 * 100%;
   position: relative;
-  filter: blur(1.5px);
+  //filter: blur(1.5px);
+<<<<<<< Updated upstream
+  //overflow: hidden;
+
+  .wow-sign-1 {
+    --size: 122px;
+
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    //background-image: url('/src/media/images/diver-section/wow1.png');
+    background-image: url('/src/media/images/diver-section/wow2.png');
+    background-size: contain;
+    left: 14%;
+    top: 12%;
+    //filter: hue-rotate(var(--hue-rotate-degrees));
+    //filter: hue-rotate(calc(-1 * var(--hue-rotate-degrees)));
+    //filter: hue-rotate(271deg);
+    transition: opacity .5s;
+    transition: opacity .75s;
+    transition: opacity .25s;
+    transition: opacity .5s;
+    z-index: 2;
+    filter: hue-rotate(94deg);
+    //opacity: 0;
+
+    &.invisible {
+      opacity: 0;
+    }
+  }
+
+  .wow-sign-2 {
+    --size: 200px;
+
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    background-image: url('/src/media/images/diver-section/wow2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 60%;
+    right: 18%;
+    z-index: 2;
+    transition: opacity .5s, transform .5s;
+    transition: opacity .4s;//, transform .5s;
+    filter: hue-rotate(299deg);
+    transform-origin: top;
+    //transform-origin: ;
+
+    &.invisible {
+      opacity: 0;
+      //transform: scale(0);
+      //transform: scale(.25);
+      //transform: scale(.4);
+      //transform: scale(.35);
+      //transform: scale(.8);
+      //transform: scale(.3);
+    }
+
+    //&.slightly-visible {
+    //
+    //}
+  }
+=======
   overflow: hidden;
+
+  //.wow-sign-1 {
+  //  --size: 122px;
+  //
+  //  position: absolute;
+  //  width: var(--size);
+  //  height: var(--size);
+  //  background-image: url('/src/media/images/diver-section/wow1.png');
+  //  background-size: contain;
+  //  left: 14%;
+  //  top: 12%;
+  //  //filter: hue-rotate(var(--hue-rotate-degrees));
+  //  //filter: hue-rotate(calc(-1 * var(--hue-rotate-degrees)));
+  //  //filter: hue-rotate(271deg);
+  //  transition: opacity .5s;
+  //  transition: opacity .75s;
+  //  transition: opacity .25s;
+  //  transition: opacity .5s;
+  //  z-index: 2;
+  //  //opacity: 0;
+  //
+  //  &.invisible {
+  //    opacity: 0;
+  //  }
+  //}
+>>>>>>> Stashed changes
 }
 
 .animation-container {
+  --hue-rotate-degrees: 0deg;
+<<<<<<< Updated upstream
+  --opposite-hue-rotate-degrees: 0deg;
+=======
+>>>>>>> Stashed changes
+
+  filter: hue-rotate(var(--hue-rotate-degrees)) blur(1.0px);
   background-image: url('/src/media/images/diver-section/diver__subway-station-photo.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,6 +129,11 @@
   left: 0;
   right: 0;
   bottom: 0;
+  transition: filter .25s;
+<<<<<<< Updated upstream
+  overflow: hidden;
+=======
+>>>>>>> Stashed changes
 
   &::before,
   &::after {
@@ -69,6 +171,7 @@
     transform: scale(1.1);
     opacity: 0;
     visibility: hidden;
+    filter: hue-rotate(var(--opposite-hue-rotate-degrees));
     
     &.visible {
       opacity: 1;
@@ -79,4 +182,74 @@
       transition: transform 0.5s;
     }
   }
+
+
+  // https://www.pngall.com/wow-png/
+  // wow images
+
+  .wow-sign-1 {
+    --size: 122px;
+
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    background-image: url('/src/media/images/diver-section/wow1.png');
+    background-size: contain;
+    left: 14%;
+    top: 12%;
+    //filter: hue-rotate(var(--hue-rotate-degrees));
+    //filter: hue-rotate(calc(-1 * var(--hue-rotate-degrees)));
+    //filter: hue-rotate(271deg);
+    transition: opacity .5s;
+    transition: opacity .75s;
+    transition: opacity .25s;
+    transition: opacity .5s;
+    z-index: 2;
+    //opacity: 0;
+
+    &.invisible {
+      opacity: 0;
+    }
+  }
+<<<<<<< Updated upstream
+  //
+  //.wow-sign-2 {
+  //  --size: 200px;
+  //
+  //  position: absolute;
+  //  width: var(--size);
+  //  height: var(--size);
+  //  background-image: url('/src/media/images/diver-section/wow2.png');
+  //  background-size: contain;
+  //  background-repeat: no-repeat;
+  //  top: 60%;
+  //  right: 18%;
+  //  z-index: 2;
+  //  transition: opacity .5s ;
+  //
+  //  &.invisible {
+  //    opacity: 0;
+  //  }
+  //}
+=======
+
+  .wow-sign-2 {
+    --size: 200px;
+
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    background-image: url('/src/media/images/diver-section/wow2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 60%;
+    right: 18%;
+    z-index: 2;
+    transition: opacity .5s ;
+
+    &.invisible {
+      opacity: 0;
+    }
+  }
+>>>>>>> Stashed changes
 }

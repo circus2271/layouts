@@ -2,6 +2,47 @@ import { scroll$ } from './helpers'
 import { filter } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
+const hueRotateDegrees = window.getComputedStyle(animationContainer).getPropertyValue('--hue-rotate-degrees')
+// const wowSign1 = animationContainer.querySelector('.wow-sign-1')
+<<<<<<< Updated upstream
+const wowSign1 = document.documentElement.querySelector('.wow-sign-1')
+const hideWowSing1 = () =>  wowSign1.classList.add('invisible')
+const showWowSing1 = () =>  wowSign1.classList.remove('invisible')
+=======
+// const wowSign1 = document.documentElement.querySelector('.wow-sign-1')
+// const hideWowSing1 = () =>  wowSign1.classList.add('invisible')
+// const showWowSing1 = () =>  wowSign1.classList.remove('invisible')
+>>>>>>> Stashed changes
+
+const wowSign2 = document.documentElement.querySelector('.wow-sign-2')
+const hideWowSing2 = () =>  wowSign2.classList.add('invisible')
+const showWowSing2 = () =>  wowSign2.classList.remove('invisible')
+// const getHueRotateDegrees = () => {
+//   // https://stackoverflow.com/a/36088890/9675926
+//
+//   const styles = getComputedStyle(animationContainer)
+//   return styles.getPropertyValue('--hue-rotate-degrees')
+// }
+const setHueRotateDegrees = (degrees) => {
+  const normalizedDegrees = Math.round(degrees)
+  const reducesDegrees = normalizedDegrees / 2
+  // const multipliedDegrees = normalizedDegrees * 4
+  // const multipliedDegrees = normalizedDegrees * 2
+  // const multipliedDegrees = normalizedDegrees / 2
+  // const multipliedDegrees = normalizedDegrees
+  // const multipliedDegrees = normalizedDegrees * 3
+  const multipliedDegrees = normalizedDegrees * 1.5
+  animationContainer.style.setProperty('--hue-rotate-degrees', `${multipliedDegrees}deg`)
+<<<<<<< Updated upstream
+  animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees}deg`)
+=======
+>>>>>>> Stashed changes
+
+  return degrees
+}
+// const hueRotateCssVariable = getHueRotateDegrees()
+
+
 const diver = animationContainer.querySelector('.js-diver')
 // we will devide animation container height by several parts to simplify up/down animation
 const verticalFractions = 6
@@ -11,7 +52,7 @@ const diverAnimationBreakpoints = [
   {
     scrolledDistancePercent: 10,
     y: -fractionHeight,
-    rotate: 0
+    rotate: 0,
   },
   {
     scrolledDistancePercent: 20,
@@ -98,6 +139,38 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
 
   const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
   diver.style.transform = `translateX(${percentsScrolled * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
+<<<<<<< Updated upstream
+
+  // if (percentsScrolled < 30) {
+  //   hideWowSing2()
+  // } else if (percentsScrolled > 80) {
+  //   wowSign2.style.opacity = 0
+  // } else {
+  //   showWowSing2()
+  // }
+
+  if (percentsScrolled > 28) {
+    setHueRotateDegrees(28)
+  } else {
+    setHueRotateDegrees(percentsScrolled)
+  }
+=======
+  // if (percentsScrolled > 30 && percentsScrolled < 60) {
+  // if (percentsScrolled > 35 && percentsScrolled < 60) {
+  //   // showWowSing1()
+  //   showWowSing2()
+  // } else (
+  //     // hideWowSing1()
+  //     hideWowSing2()
+  // )
+  // if (percentsScrolled > 35) {
+  if (percentsScrolled > 30) {
+    hideWowSing2()
+  } else {
+    showWowSing2()
+  }
+  setHueRotateDegrees(percentsScrolled)
+>>>>>>> Stashed changes
 }
 
 handleDiverOnScrollAnimation(window.scrollY)
