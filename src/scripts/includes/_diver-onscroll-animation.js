@@ -136,24 +136,31 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
   const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
   diver.style.transform = `translateX(${percentsScrolled * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
 
+  // <= 16
   // <= 26
   // > 26 && < 56
   // >= 56 && < 82
   // >= 82
-  if (percentsScrolled > 28 && percentsScrolled < 56) {
+  if (percentsScrolled > 28 && percentsScrolled < 65) {
     setHueRotateDegrees(28)
     // diver.style.opacity = '1'
 
-  } else if (percentsScrolled >= 56 && percentsScrolled < 82) {
+  // } else if (percentsScrolled >= 56 && percentsScrolled < 82) {
+  } else if (percentsScrolled >= 65 && percentsScrolled < 80) {
     // diver.style.opacity = '.5'
     diver.classList.add('semi-transparent')
-  } else if (percentsScrolled >= 82) {
+  // } else if (percentsScrolled >= 82) {
+  } else if (percentsScrolled >= 80) {
     diver.classList.add('locked')
   } else {
+    // <= 28
     setHueRotateDegrees(percentsScrolled)
-    // diver.style.opacity = '1''
-    diver.classList.remove('semi-transparent')
-    diver.classList.remove('locked')
+
+    if (percentsScrolled <= 16) {
+      // diver.style.opacity = '1''
+      diver.classList.remove('semi-transparent')
+      diver.classList.remove('locked')
+    }
   }
 }
 
