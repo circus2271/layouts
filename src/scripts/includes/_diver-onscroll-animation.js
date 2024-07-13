@@ -2,43 +2,18 @@ import { scroll$ } from './helpers'
 import { filter } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
-const hueRotateDegrees = window.getComputedStyle(animationContainer).getPropertyValue('--hue-rotate-degrees')
-// const wowSign1 = animationContainer.querySelector('.wow-sign-1')
-// const wowSign1 = document.documentElement.querySelector('.wow-sign-1')
-// const hideWowSing1 = () =>  wowSign1.classList.add('invisible')
-// const showWowSing1 = () =>  wowSign1.classList.remove('invisible')
+// const hueRotateDegrees = window.getComputedStyle(animationContainer).getPropertyValue('--hue-rotate-degrees')
 
-const wowSign2 = document.documentElement.querySelector('.wow-sign-2')
-const hideWowSing2 = () =>  wowSign2.classList.add('invisible')
-const showWowSing2 = () =>  wowSign2.classList.remove('invisible')
-// const getHueRotateDegrees = () => {
-//   // https://stackoverflow.com/a/36088890/9675926
-//
-//   const styles = getComputedStyle(animationContainer)
-//   return styles.getPropertyValue('--hue-rotate-degrees')
-// }
 const setHueRotateDegrees = (degrees) => {
   const normalizedDegrees = Math.round(degrees)
-  const reducesDegrees = normalizedDegrees / 2
-  // const multipliedDegrees = normalizedDegrees * 4
-  // const multipliedDegrees = normalizedDegrees * 2
-  // const multipliedDegrees = normalizedDegrees / 2
-  // const multipliedDegrees = normalizedDegrees
-  // const multipliedDegrees = normalizedDegrees * 3
+  // const reducesDegrees = normalizedDegrees / 2
   const multipliedDegrees = normalizedDegrees * 1.5
-  animationContainer.style.setProperty('--hue-rotate-degrees', `${multipliedDegrees}deg`)
-  // animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees*2*6}deg`)
-  // animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees*2}deg`)
-  animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees}deg`)
 
-  // const opposite = -multipliedDegrees * 2
-  // if (opposite )
-  // animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `${-multipliedDegrees*1.5}deg`)
+  animationContainer.style.setProperty('--hue-rotate-degrees', `${multipliedDegrees}deg`)
+  animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees}deg`)
 
   return degrees
 }
-// const hueRotateCssVariable = getHueRotateDegrees()
-
 
 const diver = animationContainer.querySelector('.js-diver')
 // we will devide animation container height by several parts to simplify up/down animation
@@ -135,24 +110,19 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
   const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsScrolled / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
 
   const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
-  diver.style.transform = `translateX(${percentsScrolled * (animationContainer.clientWidth) / 100 * randomSpeed}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
+  const xDistance = (animationContainer.clientWidth * (percentsScrolled / 100)) * randomSpeed
+  diver.style.transform = `translateX(${xDistance}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
 
   // <= 16
   // <= 26
   // > 26 && < 56
   // >= 56 && < 82
   // >= 82
-  // if (percentsScrolled > 28 && percentsScrolled < 65) {
   if (percentsScrolled > 28 && percentsScrolled < 56) {
     setHueRotateDegrees(28)
-    // diver.style.opacity = '1'
 
-  // } else if (percentsScrolled >= 56 && percentsScrolled < 82) {
-  // } else if (percentsScrolled >= 65 && percentsScrolled < 80) {
   } else if (percentsScrolled >= 56 && percentsScrolled < 80) {
-    // diver.style.opacity = '.5'
     diver.classList.add('semi-transparent')
-  // } else if (percentsScrolled >= 82) {
   } else if (percentsScrolled >= 80) {
     diver.classList.add('locked')
   } else {
@@ -160,7 +130,6 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
     setHueRotateDegrees(percentsScrolled)
 
     if (percentsScrolled <= 16) {
-      // diver.style.opacity = '1''
       diver.classList.remove('semi-transparent')
       diver.classList.remove('locked')
     }

@@ -10,10 +10,12 @@ scroll$
     throttleTime(50),
     filter(() => ignoreScrollEvents === false && isMobile()),
     map((currentScroll) => {
+      // scrolled down more then 30 px at once
       if (currentScroll - prevScroll > 30) {
         buttonVisible = false
       }
 
+      // scrolled up more then 30 px at once
       if (currentScroll + 30 < prevScroll) {
         buttonVisible = true
       }

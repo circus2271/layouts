@@ -6,9 +6,9 @@
   // animation example:
   // https://codepen.io/mundisyum/pen/RwJVbYg
 
-  @include small() {
-    animation-duration: 2.5s;
-  }
+  //@include small() {
+  //  animation-duration: 2.5s;
+  //}
 
   @include medium() {
     padding: 1.5rem 2.5rem;

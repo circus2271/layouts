@@ -17,68 +17,6 @@
 
   padding-top: 557 / 960 * 100%;
   position: relative;
-  //filter: blur(1.5px);
-  //overflow: hidden;
-
-  .wow-sign-1 {
-    --size: 122px;
-
-    position: absolute;
-    width: var(--size);
-    height: var(--size);
-    //background-image: url('/src/media/images/diver-section/wow1.png');
-    background-image: url('/src/media/images/diver-section/wow2.png');
-    background-size: contain;
-    left: 14%;
-    top: 12%;
-    //filter: hue-rotate(var(--hue-rotate-degrees));
-    //filter: hue-rotate(calc(-1 * var(--hue-rotate-degrees)));
-    //filter: hue-rotate(271deg);
-    transition: opacity .5s;
-    transition: opacity .75s;
-    transition: opacity .25s;
-    transition: opacity .5s;
-    z-index: 2;
-    filter: hue-rotate(94deg);
-    //opacity: 0;
-
-    &.invisible {
-      opacity: 0;
-    }
-  }
-
-  .wow-sign-2 {
-    --size: 200px;
-
-    position: absolute;
-    width: var(--size);
-    height: var(--size);
-    background-image: url('/src/media/images/diver-section/wow2.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    top: 60%;
-    right: 18%;
-    z-index: 2;
-    transition: opacity .5s, transform .5s;
-    transition: opacity .4s;//, transform .5s;
-    filter: hue-rotate(299deg);
-    transform-origin: top;
-    //transform-origin: ;
-
-    &.invisible {
-      opacity: 0;
-      //transform: scale(0);
-      //transform: scale(.25);
-      //transform: scale(.4);
-      //transform: scale(.35);
-      //transform: scale(.8);
-      //transform: scale(.3);
-    }
-
-    //&.slightly-visible {
-    //
-    //}
-  }
 }
 
 .animation-container {
@@ -112,7 +50,6 @@
   }
 
   &::before {
-
     background-image: url('/src/media/images/diver-section/diver__metro-station-column-left.png');
     left: 0;
     width: 123 / 960 * 100%;
@@ -134,7 +71,6 @@
     position: relative;
     left: -0.25rem;
     transform: scale(1.1);
-    //opacity: 0;
     visibility: hidden;
     filter: hue-rotate(var(--opposite-hue-rotate-degrees));
     
@@ -151,52 +87,63 @@
       opacity: .5;
     }
   }
-
-
-  // https://www.pngall.com/wow-png/
-  // wow images
-
-  .wow-sign-1 {
-    --size: 122px;
-
-    position: absolute;
-    width: var(--size);
-    height: var(--size);
-    background-image: url('/src/media/images/diver-section/wow1.png');
-    background-size: contain;
-    left: 14%;
-    top: 12%;
-    //filter: hue-rotate(var(--hue-rotate-degrees));
-    //filter: hue-rotate(calc(-1 * var(--hue-rotate-degrees)));
-    //filter: hue-rotate(271deg);
-    transition: opacity .5s;
-    transition: opacity .75s;
-    transition: opacity .25s;
-    transition: opacity .5s;
-    z-index: 2;
-    //opacity: 0;
-
-    &.invisible {
-      opacity: 0;
-    }
-  }
-
-  //.wow-sign-2 {
-  //  --size: 200px;
-  //
-  //  position: absolute;
-  //  width: var(--size);
-  //  height: var(--size);
-  //  background-image: url('/src/media/images/diver-section/wow2.png');
-  //  background-size: contain;
-  //  background-repeat: no-repeat;
-  //  top: 60%;
-  //  right: 18%;
-  //  z-index: 2;
-  //  transition: opacity .5s ;
-  //
-  //  &.invisible {
-  //    opacity: 0;
-  //  }
-  //}
 }
+
+
+// misc
+
+// https://www.pngall.com/wow-png/
+// wow images
+
+
+//  .wow-sign-1 {
+//    --size: 122px;
+//
+//    position: absolute;
+//    width: var(--size);
+//    height: var(--size);
+//    background-size: contain;
+//    left: 14%;
+//    top: 12%;
+//    transition: opacity .5s;
+//    z-index: 2;
+//    filter: hue-rotate(94deg);
+//    //opacity: 0;
+//
+//    &.invisible {
+//      opacity: 0;
+//    }
+//  }
+//
+//  .wow-sign-2 {
+//    --size: 200px;
+//
+//    position: absolute;
+//    width: var(--size);
+//    height: var(--size);
+//    background-image: url('/src/media/images/diver-section/wow2.png');
+//    background-size: contain;
+//    background-repeat: no-repeat;
+//    top: 60%;
+//    right: 18%;
+//    z-index: 2;
+//    transition: opacity .5s, transform .5s;
+//    transition: opacity .4s;//, transform .5s;
+//    filter: hue-rotate(299deg);
+//    transform-origin: top;
+//    //transform-origin: ;
+//
+//    &.invisible {
+//      opacity: 0;
+//      //transform: scale(0);
+//      //transform: scale(.25);
+//      //transform: scale(.4);
+//      //transform: scale(.35);
+//      //transform: scale(.8);
+//      //transform: scale(.3);
+//    }
+//
+//    //&.slightly-visible {
+//    //
+//    //}
+//  }
