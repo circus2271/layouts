@@ -109,8 +109,10 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
   const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsScrolled)[0]
   const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsScrolled / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
 
-  const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
-  const xDistance = (animationContainer.clientWidth * (percentsScrolled / 100)) * randomSpeed
+  // const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
+  const inertia = 1 + Math.random() / 10 // from 1 to 1.1
+  // const xDistance = (animationContainer.clientWidth * (percentsScrolled / 100)) * randomSpeed
+  const xDistance = (animationContainer.clientWidth * (percentsScrolled / 100)) * inertia
   diver.style.transform = `translateX(${xDistance}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
 
   // <= 16
