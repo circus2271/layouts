@@ -121,6 +121,10 @@ module.exports = {
             to: 'manifest.json'
           },
           {
+            from: path.resolve(__dirname, '../src/synth/synth.html'),
+            to: 'synth/index.html' // this will make this page available at synth/
+          },
+          {
             from: path.resolve(__dirname, '../src/offline.html'),
             to: 'offline.html'
           },
