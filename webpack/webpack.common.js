@@ -12,7 +12,9 @@ module.exports = {
     // Service worker entry point:
     serviceWorker: path.resolve(__dirname, '../src/serviceWorker.js'),
     // Application entry point:
-    bundle: path.resolve(__dirname, '../src/scripts/index.ts'),
+    index: path.resolve(__dirname, '../src/scripts/index.ts'),
+    // synth: path.resolve(__dirname, '../src/scripts/dd.ts'),
+    synth: path.resolve(__dirname, '../src/scripts/synth.js'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -47,7 +49,7 @@ module.exports = {
         options: {
           // url dosn't start with https
           inlineRequires: /^(?!https).*\.(png|svg|jpe?g|webp|gif|ico)$/i,
-          rootRelative: path.join(__dirname, '../src/hbs/'),
+          rootRelative: path.join(__dirname, '../src/templates/hbs/'),
           precompileOptions: {
             knownHelpersOnly: false
           },
@@ -120,10 +122,10 @@ module.exports = {
             from: path.resolve(__dirname, '../manifest.json'),
             to: 'manifest.json'
           },
-          {
-            from: path.resolve(__dirname, '../src/synth/synth.html'),
-            to: 'synth/index.html' // this will make this page available at synth/
-          },
+          // {
+          //   from: path.resolve(__dirname, '../src/synth/synth.html'),
+          //   to: 'synth/index.html' // this will make this page available at synth/
+          // },
           {
             from: path.resolve(__dirname, '../src/offline.html'),
             to: 'offline.html'
@@ -146,7 +148,8 @@ module.exports = {
     ...templates.map(template => new HtmlWebpackPlugin(template)),
     new SqipWebpackPlugin({
       // projectRoot: path.resolve(__dirname, '../'),
-      mediaRoot: path.resolve(__dirname, '../src/media/')
+      // mediaRoot: path.resolve(__dirname, '../src/media/')
+      // mediaRoot: path.resolve(__dirname, '../src/media/')
     }),
   ]
 }

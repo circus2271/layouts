@@ -1,9 +1,9 @@
-@import "components/navbar";
-@import "components/diver-onscroll-animation";
-@import "components/youtube-players";
-@import "components/floating-action-button";
-@import "components/plyr-player";
-@import 'components/footer';
+@import "../components/navbar";
+@import "../components/diver-onscroll-animation";
+@import "../components/youtube-players";
+@import "../components/floating-action-button";
+@import "../components/plyr-player";
+@import '../components/footer';
 
 *, *::before, *::after {
   box-sizing: border-box;

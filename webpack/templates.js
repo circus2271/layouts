@@ -2,8 +2,17 @@ const path = require('path')
 
 const templates = [
   {
-    template: path.resolve(__dirname, '../src/hbs/pages/index.hbs'),
+    template: path.resolve(__dirname, '../src/templates/hbs/pages/index.hbs'),
     filename: 'index.html',
+    chunks: ['index']
+  },
+  {
+    template: path.resolve(__dirname, '../src/templates/html/synth/synth.html'),
+    filename: 'synth/index.html',
+    // inject: false,
+    // chunks: 'dd'
+    // chunks: ['synth']
+    chunks: []
   }
 ]
 

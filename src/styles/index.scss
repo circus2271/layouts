@@ -2,7 +2,6 @@
 @import 'helpers/normalize';
 @import 'helpers/variables';
 @import 'helpers/breakpoints';
-@import "helpers/utils";
+@import 'helpers/utils';
 @import 'helpers/animations';
-@import 'layout';
-@import 'pages/index';
+@import 'layouts/layout';
