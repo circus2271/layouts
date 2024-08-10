@@ -85,7 +85,10 @@ class SqipWebpackPlugin {
 
   getImagePath(attribute) {
     const [parsedPath] = attribute.match(this.imageUrlRegexp)
-    return path.join(this.mediaRoot, parsedPath)
+    // const [parsedPath] = attribute.match(this.imageUrlRegexp)
+    // return path.join(this.mediaRoot, parsedPath)
+    // return path.join(this.mediaRoot, parsedPath)
+    return parsedPath // don't use mediaRoot here
   }
 
   createSrcAttribute(dataURI) {
