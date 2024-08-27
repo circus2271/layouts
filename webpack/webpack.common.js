@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const templates = require('./templates')
-const SqipWebpackPlugin = require('./sqip-webpack-plugin')
+// const SqipWebpackPlugin = require('./sqip-webpack-plugin')
 
 module.exports = {
   target: 'web',
@@ -146,10 +146,10 @@ module.exports = {
       }
     ),
     ...templates.map(template => new HtmlWebpackPlugin(template)),
-    new SqipWebpackPlugin({
-      // projectRoot: path.resolve(__dirname, '../'),
-      // mediaRoot: path.resolve(__dirname, '../src/media/')
-      // mediaRoot: path.resolve(__dirname, '../src/media/')
-    }),
+    // new SqipWebpackPlugin({
+    //   // projectRoot: path.resolve(__dirname, '../'),
+    //   // mediaRoot: path.resolve(__dirname, '../src/media/')
+    //   // mediaRoot: path.resolve(__dirname, '../src/media/')
+    // }),
   ]
 }
