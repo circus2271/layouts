@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <style>
+        /*@font-face {*/
+        /*    font-family: 'Montserrat';*/
+        /*    src: url('/fonts/Montserrat_Latin_400.woff2');*/
+        /*    font-weight: 400;*/
+        /*}*/
 
         * {
             box-sizing: border-box;
@@ -383,14 +388,14 @@
         A: 466.16
     };
 
-    // const makeNotesOneOctaveLower = (notes) => {
-    //     Object.keys(notes).forEach(key => {
-    //         notes[key] = notes[key] / 2
-    //     })
-    // }
-    //
-    // makeNotesOneOctaveLower(notes);
-    // makeNotesOneOctaveLower(sharps);
+    const makeNotesOneOctaveLower = (notes) => {
+        Object.keys(notes).forEach(key => {
+            notes[key] = notes[key] / 2
+        })
+    }
+
+    makeNotesOneOctaveLower(notes);
+    makeNotesOneOctaveLower(sharps);
 
 
     // notes are accessible from a keyboard
