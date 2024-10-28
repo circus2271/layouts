@@ -16,7 +16,13 @@
 
         body {
             margin: 0;
-            overflow: hidden;
+            /*overflow: hidden;*/
+        }
+
+        .waveforms {
+            position: absolute;
+            top: 0;
+            transform: translateX(-100%);
         }
 
         .container {
@@ -337,16 +343,24 @@
 
             const time = this.context.currentTime;
 
-            this.oscillator.frequency.setValueAtTime(value, this.context.currentTime);
-            this.gainNode.gain.setValueAtTime(3.5, this.context.currentTime);
+            this.oscillator.frequency.setValueAtTime(value, time);
 
-            this.oscillator.start(this.context.currentTime);
-            this.stop(time)
+            let gain;
+            if (currentWaveform === waveforms[0]) gain = .3
+            if (currentWaveform === waveforms[1]) gain = 0.8
+            if (currentWaveform === waveforms[2]) gain = 0.1
+            if (currentWaveform === waveforms[3]) gain = 0.15
+
+            this.gainNode.gain.setValueAtTime(gain, time);
+            // this.gainNode.gain.setValueAtTime(1.8, time);
+
+            this.oscillator.start(time);
+            this.stop(time + 1)
         }
 
         stop(time) {
-            this.gainNode.gain.exponentialRampToValueAtTime(0.001, time + 1);
-            this.oscillator.stop(time + 1);
+            this.gainNode.gain.exponentialRampToValueAtTime(0.001, time);
+            this.oscillator.stop(time);
         }
     }
 
@@ -369,14 +383,14 @@
         A: 466.16
     };
 
-    const makeNotesOneOctaveLower = (notes) => {
-        Object.keys(notes).forEach(key => {
-            notes[key] = notes[key] / 2
-        })
-    }
-
-    makeNotesOneOctaveLower(notes);
-    makeNotesOneOctaveLower(sharps);
+    // const makeNotesOneOctaveLower = (notes) => {
+    //     Object.keys(notes).forEach(key => {
+    //         notes[key] = notes[key] / 2
+    //     })
+    // }
+    //
+    // makeNotesOneOctaveLower(notes);
+    // makeNotesOneOctaveLower(sharps);
 
 
     // notes are accessible from a keyboard
@@ -433,10 +447,10 @@
             const notesWrapper = document.querySelector(".notes");
             const context = new AudioContext();
             const sound = new Sound(context);
-            sound.init();
             notesWrapper.addEventListener("click", event => {
                 const targetClass = event.target.classList[0];
                 if (targetClass === "button") {
+                    sound.init();
                     let currentNote = event.target.innerText;
                     showPressedButton(activeButton, event.target)
                     let frequency;
@@ -459,6 +473,7 @@
             window.addEventListener("keydown", event => {
                 console.log(event.keyCode);
                 if (codes.indexOf(event.keyCode) >= 0) {
+                    sound.init();
                     const indexOfNote = codes.indexOf(event.keyCode);
                     console.log(event.keyCode);
                     const currentNote = notes[indexOfNote];
@@ -468,6 +483,7 @@
                     sound.play(frequency);
                 }
                 if (sharpCodes.indexOf(event.keyCode) >= 0) {
+                    sound.init();
                     const indexOfNote = sharpCodes.indexOf(event.keyCode);
                     console.log(event.keyCode);
                     const currentNote = sharpNotes[indexOfNote];
