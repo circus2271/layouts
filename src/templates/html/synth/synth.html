@@ -351,7 +351,8 @@
             this.oscillator.frequency.setValueAtTime(value, time);
 
             let gain;
-            if (currentWaveform === waveforms[0]) gain = .3
+            // if (currentWaveform === waveforms[0]) gain = .3
+            if (currentWaveform === waveforms[0]) gain = .7
             if (currentWaveform === waveforms[1]) gain = 0.8
             if (currentWaveform === waveforms[2]) gain = 0.1
             if (currentWaveform === waveforms[3]) gain = 0.15
