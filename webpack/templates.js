@@ -11,8 +11,8 @@ const templates = [
     filename: 'synth/index.html',
     // inject: false,
     // chunks: 'dd'
-    // chunks: ['synth']
-    chunks: []
+    chunks: ['synth']
+    // chunks: []
   }
 ]
 

@@ -1,4 +1,4 @@
-import '../styles/synth.sass'
+// import '../styles/synth.sass'
 
 // inlined into html
 // const waveforms = ["sine", "triangle", "square", "sawtooth"];
