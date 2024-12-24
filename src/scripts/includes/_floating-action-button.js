@@ -10,13 +10,15 @@ scroll$
     throttleTime(50),
     filter(() => ignoreScrollEvents === false && isMobile()),
     map((currentScroll) => {
-      // scrolled down more then 30 px at once
-      if (currentScroll - prevScroll > 30) {
+      const deltaY = currentScroll - prevScroll
+
+      // scrolled down
+      if (deltaY >= 30) {
         buttonVisible = false
       }
 
-      // scrolled up more then 30 px at once
-      if (currentScroll + 30 < prevScroll) {
+      // scrolled up
+      if (deltaY <= -30) {
         buttonVisible = true
       }
 
@@ -25,13 +27,10 @@ scroll$
     }),
     distinctUntilChanged(),
   )
-  .subscribe({
-    next: buttonVisible => {
-      buttonVisible ?
-        floatingButton.classList.remove('hidden') :
-        floatingButton.classList.add('hidden')
-    },
-    error: console.log
+  .subscribe(buttonVisible => {
+    buttonVisible ?
+      floatingButton.classList.remove('hidden') :
+      floatingButton.classList.add('hidden')
   })
 
 const floatingButton = document.querySelector('.js-floating-action-button'),
