@@ -10,9 +10,16 @@
 }
 
 html {
-  @include big {
-    scroll-behavior: smooth;
+  //@include big {
+  //  scroll-behavior: smooth;
+  //}
+
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion) {
+    scroll-behavior: instant;
   }
+
 }
 
 body {
