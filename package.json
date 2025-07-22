@@ -36,7 +36,6 @@
     "image-minimizer-webpack-plugin": "^1.0.0",
     "imagemin": "^7.0.1",
     "imagemin-mozjpeg": "^6.0.0",
-    "imagemin-pngquant": "^5.0.1",
     "imagemin-svgo": "^11.0.1",
     "imagemin-webp": "^4.0.0",
     "js-base64": "^3.6.0",

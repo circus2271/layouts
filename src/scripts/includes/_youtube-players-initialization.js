@@ -1,8 +1,12 @@
 import lozad from 'lozad'
 import { isMobile } from './helpers'
 
-window['onYouTubeIframeAPIReady'] = () => {
+//window['onYouTubeIframeAPIReady'] = () => {
   lozad('.js-youtube-placeholder-image', {
+//      rootMargin: '0px 0px -100%', // syntax similar to that of CSS Margin
+      rootMargin: '0px 0px 100%', // syntax similar to that of CSS Margin
+//      rootMargin: '0px 0px 120%', // syntax similar to that of CSS Margin
+
     // TODO: rewrite
     loaded: placeholderImage => {
       const playerWrapper = placeholderImage.closest('.js-youtube-player-wrapper')
@@ -24,7 +28,8 @@ window['onYouTubeIframeAPIReady'] = () => {
       }
     }
   }).observe()
-}
+//}
+
 const tag = document.createElement('script')
 tag.src = 'https://www.youtube.com/iframe_api'
 document.body.appendChild(tag)

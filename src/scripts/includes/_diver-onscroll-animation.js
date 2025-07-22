@@ -5,14 +5,13 @@ const animationContainer = document.querySelector('.js-diver-section .js-animati
 // const hueRotateDegrees = window.getComputedStyle(animationContainer).getPropertyValue('--hue-rotate-degrees')
 
 const setHueRotateDegrees = (degrees) => {
-  const normalizedDegrees = Math.round(degrees)
-  // const reducesDegrees = normalizedDegrees / 2
-  const multipliedDegrees = normalizedDegrees * 1.5
-
-  animationContainer.style.setProperty('--hue-rotate-degrees', `${multipliedDegrees}deg`)
-  animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees}deg`)
-
-  return degrees
+//  const normalizedDegrees = Math.round(degrees)
+//  const multipliedDegrees = normalizedDegrees * 1.5
+//
+//  animationContainer.style.setProperty('--hue-rotate-degrees', `${multipliedDegrees}deg`)
+//  animationContainer.style.setProperty('--opposite-hue-rotate-degrees', `-${multipliedDegrees}deg`)
+//
+//  return degrees
 }
 
 const diver = animationContainer.querySelector('.js-diver')
@@ -124,16 +123,16 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
     setHueRotateDegrees(28)
 
   } else if (percentsScrolled >= 56 && percentsScrolled < 80) {
-    diver.classList.add('semi-transparent')
+//    diver.classList.add('semi-transparent')
   } else if (percentsScrolled >= 80) {
-    diver.classList.add('locked')
+//    diver.classList.add('locked')
   } else {
     // <= 28
     setHueRotateDegrees(percentsScrolled)
 
     if (percentsScrolled <= 16) {
-      diver.classList.remove('semi-transparent')
-      diver.classList.remove('locked')
+//      diver.classList.remove('semi-transparent')
+//      diver.classList.remove('locked')
     }
   }
 }
