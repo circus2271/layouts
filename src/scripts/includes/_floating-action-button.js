@@ -65,9 +65,30 @@ const html = [...videoPlayers].map(player => {
 const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-titles-list')
 videoTitlesList.innerHTML = html
 
+// the idea is that navigations between #hash part of url
+// will be replaced buy each other, so navigation back will return back to previous page and not to previous hash
+const scrollIntoView = () => {
+    const elementId = window.location.hash
+    const element = elementId ? document.querySelector(elementId) : null
+
+    if (element) element.scrollIntoView({behavior: 'smooth'})
+}
+
+// check if an url has hash id
+// if so, check if there is an element with this id
+// if any, scroll into it
+scrollIntoView()
+
 fromEvent(videoTitlesList, 'click')
   .pipe(filter(el => el.target.tagName === 'A'))
-  .subscribe(e => floatingButton.click())
+  .subscribe(e => {
+    e.preventDefault()
+
+    window.history.replaceState('', '', e.target.href)
+    scrollIntoView()
+
+    floatingButton.click()
+  })
 
 fromEvent(document, 'click')
   .pipe(filter(e => mobileFullScreenMenu.classList.contains('visible') && !e.target.closest('.js-mobile-fullscreen-menu')))
