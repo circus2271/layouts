@@ -67,25 +67,30 @@ videoTitlesList.innerHTML = html
 
 // the idea is that navigations between #hash part of url
 // will be replaced buy each other, so navigation back will return back to previous page and not to previous hash
-const scrollIntoView = () => {
-    const elementId = window.location.hash
-    const element = elementId ? document.querySelector(elementId) : null
-
-    if (element) element.scrollIntoView({behavior: 'smooth'})
-}
+//const scrollIntoView = () => {
+//    const elementId = window.location.hash
+//    const element = elementId ? document.querySelector(elementId) : null
+//
+//    if (element) element.scrollIntoView({behavior: 'smooth'})
+//}
 
 // check if an url has hash id
 // if so, check if there is an element with this id
 // if any, scroll into it
-scrollIntoView()
+//scrollIntoView()
 
 fromEvent(videoTitlesList, 'click')
-  .pipe(filter(el => el.target.tagName === 'A'))
-  .subscribe(e => {
+  .pipe(
+    filter(el => el.target.tagName === 'A'),
+    map(el => [el.target.hash, el])
+  )
+  .subscribe(([id, e]) => {
     e.preventDefault()
 
-    window.history.replaceState('', '', e.target.href)
-    scrollIntoView()
+    if (id) {
+      const element = document.querySelector(id)
+      if (element) element.scrollIntoView({behavior: 'smooth'})
+    }
 
     floatingButton.click()
   })
