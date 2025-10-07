@@ -1,0 +1,75 @@
+@font-face {
+  //font-family: 'SatyrSP';
+  font-family: 'SatyrPassionate';
+  //src: url('../../fonts/SatyrSP.otf');
+  src: url('../../fonts/SatyrSP.otf');
+  font-weight: 400;
+}
+
+ @font-face {
+   font-family: "Kereru";
+   src: url('../../fonts/Kereru.otf');
+ }
+
+.page {
+  min-height: 100vh;
+  // background: black;
+  // background: #dedede;
+  // background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  // aspect-ratio: 5.5/2.5;
+  aspect-ratio: 5.5/8.5;
+  width: 300px;
+  // border-radius: 2%;
+  border-radius: 1rem;
+  // height: 750px;
+  background: #eee;
+  background: #444;
+  position: relative;
+  // top: 15rem;
+  // display: flex;
+  // align-items: center;
+  overflow: hidden;
+   transform: scale(1.5);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  // clip-path: ellipse(40% 70% at 50% 50%);
+  // position: absolute;
+  // inset: 0;
+}
+
+.image-wrapper {
+  flex-grow: 1;
+}
+
+
+
+
+/*@font-face {*/
+/*    font-family: "SatyrPassionate";*/
+/*    src: url("https://fonts-online.ru/sites/default/files/2024-05/SatyrSP.otf");*/
+/*}*/
+
+.label {
+  position: absolute;
+  // top: 1.5rem;
+  top: 5%;
+  left: 7.5%;
+  // text-transform: uppercase;
+  // font-family: Kereru;
+  // font-family: 'SatyrPassionate', cursive;
+  /*font-family: 'SatyrPassionate' ;*/
+  font-family: 'SatyrPassionate' ;
+  font-family: 'Kereru' ;
+  font-size: 4rem;
+  font-size: 2rem;
+  color: #333;
+}

@@ -15,6 +15,7 @@ module.exports = {
     index: path.resolve(__dirname, '../src/scripts/index.ts'),
     // synth: path.resolve(__dirname, '../src/scripts/dd.ts'),
     synth: path.resolve(__dirname, '../src/scripts/synth.js'),
+    ded: path.resolve(__dirname, '../src/scripts/ded.js'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -36,7 +37,8 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    // extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.html'],
     alias: {
       'media': path.resolve(__dirname, '../src/media/'),
     }
@@ -91,7 +93,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.woff2$/i,
+        test: /\.woff2|otf$/i,
         use: 'url-loader',
       },
       {

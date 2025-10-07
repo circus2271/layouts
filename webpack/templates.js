@@ -13,6 +13,15 @@ const templates = [
     // chunks: 'dd'
     // chunks: ['synth']
     chunks: []
+  },
+  {
+    template: path.resolve(__dirname, '../src/templates/html/ded/index.html'),
+    filename: 'ded/index.html',
+    // inject: false,
+    // chunks: 'dd'
+    // chunks: ['synth']
+    chunks: ['ded']
+    // chunks: []
   }
 ]
 
