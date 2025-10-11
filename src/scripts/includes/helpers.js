@@ -1,5 +1,3 @@
-import { fromEvent, map, share } from 'rxjs'
-
 
 class MobileDeviceDetector {
 
@@ -18,5 +16,43 @@ const mobileDeviceDetector = new MobileDeviceDetector()
 export const isMobile = () => mobileDeviceDetector.isMobile
 
 
-///
-export const scroll$ = fromEvent(document, 'scroll', { passive: true }).pipe(map(() => window.scrollY), share() )
+function animate({ returnCallback } = { returnCallback: false}) {
+  const animations = []
+
+  const a = () => {
+    if (animations.length === 0) return
+
+    const currentScroll = window.scrollY
+    animations.forEach(cb => cb ? cb(currentScroll) : null)
+
+    requestAnimationFrame(a)
+  }
+
+  requestAnimationFrame(a)
+
+  if (returnCallback) {
+    return function registerAnimationCallback(cb) {
+      animations.push(cb)
+    }
+  }
+}
+
+export const registerAnimationCallback = animate({returnCallback: true})
+
+// function animate() {
+//   const animations = []
+//   console.log('initialize')
+//   setInterval(() => {
+//     animations.forEach(cb => cb ? cb() : null)
+//   }, 100)
+//
+//   return function registerCallback(cb) {
+//     animations.push(cb)
+//   }
+//
+// }
+//
+// const registerCallback = animate()
+//
+// registerCallback(() => console.log(10))
+// registerCallback(() => console.log(20))
