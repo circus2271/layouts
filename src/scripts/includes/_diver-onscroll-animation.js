@@ -1,4 +1,5 @@
-import { registerAnimationCallback } from './helpers'
+import { scroll$ } from './helpers'
+import { filter } from 'rxjs'
 
 const animationContainer = document.querySelector('.js-diver-section .js-animation-container')
 // const hueRotateDegrees = window.getComputedStyle(animationContainer).getPropertyValue('--hue-rotate-degrees')
@@ -95,8 +96,6 @@ window.addEventListener('resize', _ => {
   scrollEnd = getScrollEndY();
 })
 
-let prevBreakPoint
-
 const handleDiverOnScrollAnimation = (currentScroll) => {
   const delta = scrollEnd - scrollStart;
 
@@ -104,15 +103,13 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
   // normalize value to set diver's initial position on a first run
   if (percentsScrolled > 100) percentsScrolled = 100
   if (percentsScrolled < 0) percentsScrolled = 0
-  // console.log(percentsScrolled)
+  console.log(percentsScrolled)
 
-  const nextBreakpoint = diverAnimationBreakpoints.find(breakpoint => breakpoint.scrolledDistancePercent > percentsScrolled)
+  const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsScrolled)[0]
   const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsScrolled / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
 
-  const breakPointDidntChange = nextBreakpoint?.scrolledDistancePercent === prevBreakPoint?.scrolledDistancePercent
-
   // const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
-  const inertia = breakPointDidntChange ? 1 : 1 + Math.random() / 10 // from 1 to 1.1
+  const inertia = 1 + Math.random() / 10 // from 1 to 1.1
   // const xDistance = (animationContainer.clientWidth * (percentsScrolled / 100)) * randomSpeed
   const xDistance = (animationContainer.clientWidth * (percentsScrolled / 100)) * inertia
   diver.style.transform = `translateX(${xDistance}px) translateY(${transformYPropertyValue}px) rotate(${nextBreakpoint?.rotate ?? 0}deg)`
@@ -138,8 +135,6 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
 //      diver.classList.remove('locked')
     }
   }
-
-  prevBreakPoint = nextBreakpoint
 }
 
 handleDiverOnScrollAnimation(window.scrollY)
@@ -147,10 +142,6 @@ setTimeout(() => {
   diver.classList.add('visible', 'transition-styles-applied')
 })
 
-registerAnimationCallback((currentScroll) => {
-  const shouldAnimate = currentScroll > scrollStart && currentScroll < scrollEnd
-
-  if (shouldAnimate) {
-    handleDiverOnScrollAnimation(currentScroll)
-  }
-})
+scroll$
+  .pipe(filter(currentScroll => currentScroll > scrollStart && currentScroll < scrollEnd))
+  .subscribe((currentScroll) => handleDiverOnScrollAnimation(currentScroll))

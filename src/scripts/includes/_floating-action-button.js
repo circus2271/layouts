@@ -1,35 +1,37 @@
-import { isMobile } from './helpers'
+import { distinctUntilChanged, fromEvent, map, filter, throttleTime } from 'rxjs'
+import { isMobile, scroll$ } from './helpers'
 
 let prevScroll
-let time1 = new Date().getTime()
+let buttonVisible = true
+let ignoreScrollEvents = false
 
-document.addEventListener('scroll', () => {
-    if (isMobile()) {
-        const time2 = new Date().getTime()
-        const deltaTime = time2 - time1
+scroll$
+  .pipe(
+    throttleTime(50),
+    filter(() => ignoreScrollEvents === false && isMobile()),
+    map((currentScroll) => {
+      const deltaY = currentScroll - prevScroll
 
-        if (deltaTime < 50) return
+      // scrolled down
+      if (deltaY >= 30) {
+        buttonVisible = false
+      }
 
-        time1 = time2
-        // continue
+      // scrolled up
+      if (deltaY <= -30) {
+        buttonVisible = true
+      }
 
-        const currentScroll = window.scrollY
-        const deltaY = currentScroll - prevScroll
-        // const gap = 30
-
-        // scrolled down
-        if (deltaY >= 30) {
-            hideFloatingButton()
-        }
-
-        // scrolled up
-        if (deltaY <= -30) {
-            showFloatingButton()
-        }
-
-        prevScroll = currentScroll
-    }
-})
+      prevScroll = currentScroll
+      return buttonVisible
+    }),
+    distinctUntilChanged(),
+  )
+  .subscribe(buttonVisible => {
+    buttonVisible ?
+      floatingButton.classList.remove('hidden') :
+      floatingButton.classList.add('hidden')
+  })
 
 const floatingButton = document.querySelector('.js-floating-action-button'),
   mobileFullScreenMenu = document.querySelector('.js-mobile-fullscreen-menu')
@@ -63,34 +65,37 @@ const html = [...videoPlayers].map(player => {
 const videoTitlesList = document.querySelector('.js-fullscreen-menu__video-titles-list')
 videoTitlesList.innerHTML = html
 
+// the idea is that navigations between #hash part of url
+// will be replaced buy each other, so navigation back will return back to previous page and not to previous hash
+//const scrollIntoView = () => {
+//    const elementId = window.location.hash
+//    const element = elementId ? document.querySelector(elementId) : null
+//
+//    if (element) element.scrollIntoView({behavior: 'smooth'})
+//}
 
-videoTitlesList.addEventListener('click', e => {
+// check if an url has hash id
+// if so, check if there is an element with this id
+// if any, scroll into it
+//scrollIntoView()
+
+fromEvent(videoTitlesList, 'click')
+  .pipe(
+    filter(el => el.target.tagName === 'A'),
+    map(el => [el.target.hash, el])
+  )
+  .subscribe(([id, e]) => {
     e.preventDefault()
-    
-    if (e.target.tagName === 'A') {
-        const id = e.target.hash
 
-        if (id) {
-            const element = document.querySelector(id)
-            if (element) element.scrollIntoView({behavior: 'smooth'})
-
-        }
-
-        floatingButton.click()
+    if (id) {
+      const element = document.querySelector(id)
+      if (element) element.scrollIntoView({behavior: 'smooth'})
     }
-})
 
+    floatingButton.click()
+  })
 
-document.addEventListener('click', e => {
-    if (mobileFullScreenMenu.classList.contains('visible') && !e.target.closest('.js-mobile-fullscreen-menu')) {
-        floatingButton.click()
-    }
-})
+fromEvent(document, 'click')
+  .pipe(filter(e => mobileFullScreenMenu.classList.contains('visible') && !e.target.closest('.js-mobile-fullscreen-menu')))
+  .subscribe(() => floatingButton.click())
 
-function showFloatingButton() {
-    floatingButton.classList.remove('hidden')
-}
-
-function hideFloatingButton() {
-    floatingButton.classList.add('hidden')
-}
