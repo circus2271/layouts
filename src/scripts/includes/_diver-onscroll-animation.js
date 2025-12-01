@@ -96,6 +96,7 @@ window.addEventListener('resize', _ => {
   scrollEnd = getScrollEndY();
 })
 
+let prevPercent = null;
 const handleDiverOnScrollAnimation = (currentScroll) => {
   const delta = scrollEnd - scrollStart;
 
@@ -105,7 +106,10 @@ const handleDiverOnScrollAnimation = (currentScroll) => {
   if (percentsScrolled < 0) percentsScrolled = 0
   console.log(percentsScrolled)
 
-  const nextBreakpoint = diverAnimationBreakpoints.filter(breakpoint => breakpoint.scrolledDistancePercent > percentsScrolled)[0]
+  if (prevPercent === percentsScrolled) return
+  prevPercent = percentsScrolled
+
+  const nextBreakpoint = diverAnimationBreakpoints.find(breakpoint => breakpoint.scrolledDistancePercent > percentsScrolled)
   const transformYPropertyValue = nextBreakpoint ? nextBreakpoint.y * percentsScrolled / nextBreakpoint.scrolledDistancePercent : lastBreakpoint.y
 
   // const randomSpeed = 1 + Math.random() / 10 // from 1 to 1.1
