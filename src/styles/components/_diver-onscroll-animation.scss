@@ -15,7 +15,7 @@
 
 .animation-container-wrapper {
 
-  padding-top: 557 / 960 * 100%;
+  padding-top: calc(557 / 960 * 100%);
   position: relative;
 }
 
@@ -52,13 +52,13 @@
   &::before {
     background-image: url('/src/media/images/diver-section/diver__metro-station-column-left.png');
     left: 0;
-    width: 123 / 960 * 100%;
+    width: calc(123 / 960 * 100%);
   }
 
   &::after {
     background-image: url('/src/media/images/diver-section/diver__metro-station-column-right.png');
     right: 0;
-    width: 123 / 960 * 100%;
+    width: calc(123 / 960 * 100%);
   }
 
   .diver {
