@@ -15,9 +15,11 @@
   }
 
   &__wrapper {
-    @include xl-wrapper();
+    //@include xl-wrapper();
     display: flex;
     align-items: center;
+    @include xl-wrapper();
+
   }
 
   .flex-spacer {
