@@ -326,6 +326,7 @@
 </div>
 <script>
     const waveforms = ["sine", "triangle", "square", "sawtooth"];
+    const value1 = +prompt('gain')
 
     let currentWaveform = waveforms[0];
 
@@ -351,7 +352,6 @@
             this.oscillator.frequency.setValueAtTime(value, time);
 
             let gain;
-            const value1 = +prompt('gain')
             // if (currentWaveform === waveforms[0]) gain = .3
             if (currentWaveform === waveforms[0]) gain = value1
             if (currentWaveform === waveforms[1]) gain = 0.8
